@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://y0ml161rgih5"]
+
+[ext_resource type="Script" uid="uid://qsvxyd26ylns" path="res://Scripts/obstacle_spawner.gd" id="1_c8vt3"]
+[ext_resource type="PackedScene" uid="uid://b1okbrg8qq1mi" path="res://Scenes/player.tscn" id="2_a2tm6"]
+
+[node name="Obstacle Spawner" type="Node2D" unique_id=1301030244]
+script = ExtResource("1_c8vt3")
+metadata/Objects = [ExtResource("2_a2tm6"), ExtResource("2_a2tm6"), ExtResource("2_a2tm6"), ExtResource("2_a2tm6")]
+
+[node name="Timer" type="Timer" parent="." unique_id=1341898455]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
