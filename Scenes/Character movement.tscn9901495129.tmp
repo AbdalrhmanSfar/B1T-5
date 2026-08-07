@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bssifypxk11nc"]
+
+[ext_resource type="Script" uid="uid://h2giog7y64rf" path="res://Scripts/char.gd" id="1_rl2vn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(4, 10)
+
+[sub_resource type="QuadMesh" id="QuadMesh_14cdr"]
+
+[node name="CharacterMovement" type="Node2D" unique_id=1828633061]
+
+[node name="Char" type="CharacterBody2D" parent="." unique_id=1434809831]
+position = Vector2(0, 250)
+scale = Vector2(20, 20)
+motion_mode = 1
+script = ExtResource("1_rl2vn")
+street_width = 500.0
+direct_keys = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Char" unique_id=807363456]
+shape = SubResource("RectangleShape2D_htemk")
+debug_color = Color(0.29803923, 0.69803923, 0.9254902, 0.49411765)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Char" unique_id=234254913]
+modulate = Color(1, 0.77254903, 1, 1)
+scale = Vector2(5, 10)
+mesh = SubResource("QuadMesh_14cdr")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1001886610]
