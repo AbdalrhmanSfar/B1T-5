@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://7eh0ubcdbynu"]
+
+[ext_resource type="Script" uid="uid://dabn7k5n8eoj3" path="res://Scripts/pauseMenuScript.gd" id="1_lav5v"]
+[ext_resource type="PackedScene" uid="uid://b0cymrj8ay57s" path="res://Scenes/settingsScene.tscn" id="2_shfa6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkeji"]
+
+[node name="pauseMenu" type="CanvasLayer" unique_id=1959096775]
+process_mode = 3
+script = ExtResource("1_lav5v")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1921024123]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.50980395)
+
+[node name="Panel" type="Panel" parent="." unique_id=2066418964]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_tkeji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=480442956]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="resumeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1414270464]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Resume
+"
+
+[node name="restartButton" type="Button" parent="Panel/VBoxContainer" unique_id=195981031]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="settingsButton" type="Button" parent="Panel/VBoxContainer" unique_id=1067867023]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="quitToMainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1722095067]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu"
+
+[node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("2_shfa6")]
+visible = false
+
+[connection signal="pressed" from="Panel/VBoxContainer/resumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/quitToMainButton" to="." method="_on_quit_to_main_button_pressed"]

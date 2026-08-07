@@ -3,6 +3,7 @@ extends Node
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
 var paused = false
+var score = 0.0 # time survived
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,8 +20,10 @@ func _process(delta: float) -> void:
 
 func pause_game() -> void:
 	paused = true
-	UIManagar.pause_ui()
 
 func unpause_game() -> void:
 	paused = false
-	UIManagar.unpause_ui()
+
+func gameOver():
+	SilentWolf.Scores.save_score(Global.playerName, score)
+	score = 0

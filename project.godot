@@ -11,14 +11,32 @@ config_version=5
 [application]
 
 config/name="B1T 5"
-run/main_scene="uid://qoq4vqns2a8f"
+run/main_scene="uid://dqy7hjwexb1nd"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://crytstr578mr"
+
+[autoload]
+
+Global="*uid://xa7tryuoqi6k"
+MusicPlayerSingleton="*uid://btwqpqs4fwemk"
+SilentWolf="*uid://dntv6cj88xshq"
+FadeTransitionSceneV2="*uid://c0pbgmf6u3ff6"
+
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/silent_wolf/plugin.cfg")
 
 [input]
 

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://c0pbgmf6u3ff6"]
+
+[ext_resource type="Script" uid="uid://cpkysmon3wf3b" path="res://Scenes/fadeTransitionScript2.gd" id="1_kowut"]
+
+[sub_resource type="Animation" id="Animation_h0fpg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yohk7"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dckbp"]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8073u"]
+_data = {
+&"RESET": SubResource("Animation_h0fpg"),
+&"fadeIn": SubResource("Animation_yohk7"),
+&"fadeOut": SubResource("Animation_dckbp")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=859972477]
+visible = false
+
+[node name="fadeTransition" type="ColorRect" parent="." unique_id=1826309271]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_kowut")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fadeTransition" unique_id=1363033403]
+libraries/ = SubResource("AnimationLibrary_8073u")
+
+[node name="Timer" type="Timer" parent="fadeTransition" unique_id=824404789]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="fadeTransition" unique_id=1811097839]
+one_shot = true
+
+[connection signal="timeout" from="fadeTransition/Timer" to="fadeTransition" method="_on_timer_timeout"]
+[connection signal="timeout" from="fadeTransition/Timer2" to="fadeTransition" method="_on_timer_2_timeout"]

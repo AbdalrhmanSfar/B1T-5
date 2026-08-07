@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://b0cymrj8ay57s"]
+
+[ext_resource type="Script" uid="uid://h0pactxjpgit" path="res://Scripts/settingsScript.gd" id="1_1wtnp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqcci"]
+bg_color = Color(0.16924527, 0.1692453, 0.16924521, 1)
+
+[node name="settingsPanel" type="Panel" unique_id=1924778424]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_gqcci")
+script = ExtResource("1_1wtnp")
+
+[node name="quitSettings" type="Button" parent="." unique_id=1952342970]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.97
+anchor_top = -0.03
+anchor_right = 1.03
+anchor_bottom = 0.03
+offset_right = 0.3359375
+offset_bottom = -0.104002
+theme_override_font_sizes/font_size = 40
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=223539416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="masterSlider" type="VBoxContainer" parent="VBoxContainer" unique_id=2122509727]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/masterSlider" unique_id=1797693513]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "    Master"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/masterSlider" unique_id=960253758]
+custom_minimum_size = Vector2(700, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="musicSlider" type="VBoxContainer" parent="VBoxContainer" unique_id=665385261]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/musicSlider" unique_id=429690067]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "    Music"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/musicSlider" unique_id=1734819380]
+custom_minimum_size = Vector2(700, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="SFXslider" type="VBoxContainer" parent="VBoxContainer" unique_id=1438849143]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/SFXslider" unique_id=1029448207]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "    SFX"
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFXslider" unique_id=876224695]
+custom_minimum_size = Vector2(700, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer" unique_id=960767864]
+custom_minimum_size = Vector2(300, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 35
+text = "Fullscreen
+"
+
+[connection signal="pressed" from="quitSettings" to="." method="_on_quit_settings_pressed"]
+[connection signal="value_changed" from="VBoxContainer/masterSlider/HSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/musicSlider/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXslider/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://dqy7hjwexb1nd"]
+
+[ext_resource type="Script" uid="uid://drfvq15hvfpom" path="res://Scripts/mainMenuScript.gd" id="1_2scmx"]
+[ext_resource type="PackedScene" uid="uid://df5v37gjwap4e" path="res://Scenes/fadeTransitionScene.tscn" id="2_dmpjx"]
+[ext_resource type="PackedScene" uid="uid://b0cymrj8ay57s" path="res://Scenes/settingsScene.tscn" id="3_gqcci"]
+
+[node name="mainMenuScene" type="Control" unique_id=1060095118]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2scmx")
+
+[node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("3_gqcci")]
+visible = false
+layout_mode = 1
+
+[node name="creditsPanel" type="Panel" parent="." unique_id=1107286848]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="quitCredits" type="Button" parent="creditsPanel" unique_id=444468547]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.91600007
+anchor_top = 0.041
+anchor_right = 0.96800005
+anchor_bottom = 0.133
+offset_top = -0.2800026
+offset_right = 0.16003418
+offset_bottom = 0.3600006
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="mainButtons" type="VBoxContainer" parent="." unique_id=914527426]
+propagate_maximum_size = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="playButton" type="Button" parent="mainButtons" unique_id=590671974]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="settingsButon" type="Button" parent="mainButtons" unique_id=300768377]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Settings"
+
+[node name="leaderboardButton" type="Button" parent="mainButtons" unique_id=289884480]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Leaderboard"
+
+[node name="creditsButton" type="Button" parent="mainButtons" unique_id=523571753]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+
+[node name="quitButton" type="Button" parent="mainButtons" unique_id=1643641523]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="fadeTransition" parent="." unique_id=1826309271 instance=ExtResource("2_dmpjx")]
+visible = false
+layout_mode = 1
+
+[node name="fadeTimer" type="Timer" parent="fadeTransition" unique_id=2027618990]
+
+[node name="enterNameContainer" type="Control" parent="." unique_id=2011263210]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LineEdit" type="LineEdit" parent="enterNameContainer" unique_id=566339143]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38
+anchor_top = 0.44
+anchor_right = 0.62
+anchor_bottom = 0.56
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 41
+placeholder_text = "Enter your name:"
+
+[node name="submitNameButton" type="Button" parent="enterNameContainer" unique_id=1020938310]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.38000003
+anchor_top = 0.57
+anchor_right = 0.62
+anchor_bottom = 0.64
+offset_left = -6.1035156e-05
+offset_right = -0.00012207031
+theme_override_font_sizes/font_size = 46
+text = "Submit"
+
+[connection signal="pressed" from="creditsPanel/quitCredits" to="." method="_on_quit_credits_pressed"]
+[connection signal="pressed" from="mainButtons/playButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="mainButtons/settingsButon" to="." method="_on_settings_buton_pressed"]
+[connection signal="pressed" from="mainButtons/leaderboardButton" to="." method="_on_leaderboard_button_pressed"]
+[connection signal="pressed" from="mainButtons/creditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="mainButtons/quitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="timeout" from="fadeTransition/fadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="enterNameContainer/submitNameButton" to="." method="_on_submit_name_button_pressed"]
