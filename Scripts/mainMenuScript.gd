@@ -1,10 +1,8 @@
 extends Control
 
-@onready var fadePanel: ColorRect = $fadeTransition
 @onready var creditsPanel: Panel = $creditsPanel
 @onready var mainButtons: VBoxContainer = $mainButtons
 @onready var settingsPanel: Panel = $settingsPanel
-#@onready var leaderboard: Node2D = $Leaderboard
 @onready var enterNameContainer: Control = $enterNameContainer
 @onready var nameBox: LineEdit = $enterNameContainer/LineEdit
 
@@ -14,7 +12,6 @@ func _ready() -> void:
 	mainButtons.show()
 	settingsPanel.hide()
 	creditsPanel.hide()
-	fadePanel.hide()
 	
 	if Global.config.get_value("settings", "name") == "a":
 		mainButtons.hide()

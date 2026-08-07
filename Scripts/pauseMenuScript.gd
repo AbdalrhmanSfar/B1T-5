@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var pauseMenu: Panel = $Panel
 @onready var settingsMenu: Panel = $settingsPanel
-@onready var fadePanel: ColorRect = %fadeTransition
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

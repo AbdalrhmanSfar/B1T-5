@@ -1,6 +1,5 @@
 extends Node
 
-var justLaunched: bool = true
 var closedSettings: bool = false
 var config = ConfigFile.new()
 const settingsFilePath = "user://settings.ini"
