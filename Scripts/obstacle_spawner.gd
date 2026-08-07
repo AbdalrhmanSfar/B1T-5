@@ -1,8 +1,9 @@
 extends Node2D
 
-var initial_off_time = 5
+var initial_off_time_start = 3
+var initial_off_time_end = 20
 var range_start = 3
-var range_end = 10
+var range_end = 30
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Timer = $"Timer"
 @onready var objects: Array
@@ -13,7 +14,7 @@ func _ready() -> void:
 	objects = get_meta("Objects")
 	laneIndex = get_meta("index")
 	position.x = (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
-	timer.start(initial_off_time)
+	timer.start(randi_range(initial_off_time_start,initial_off_time_end))
 
 func _on_timer_timeout() -> void:
 	spawnRandomObject()
