@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):
 		if not paused:
 			pause_game()
@@ -25,5 +25,6 @@ func unpause_game() -> void:
 	paused = false
 
 func gameOver():
+	print("GAME OVER")
 	SilentWolf.Scores.save_score(Global.playerName, score)
 	score = 0
