@@ -47,5 +47,5 @@ func unpause_game() -> void:
 
 func gameOver():
 	print("GAME OVER")
-	SilentWolf.Scores.save_score("Global.playerName", score)
+	SilentWolf.Scores.save_score(Global.playerName, score)
 	score = 0
