@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://br4no7vflgs8r"]
+
+[ext_resource type="Script" uid="uid://h2giog7y64rf" path="res://Scripts/carScript.gd" id="1_7822p"]
+[ext_resource type="Texture2D" uid="uid://cakxjwen60mh0" path="res://Sprites/idle temp.png" id="2_go66d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htemk"]
+size = Vector2(4, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sfmx"]
+atlas = ExtResource("2_go66d")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sfmx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Car" type="CharacterBody2D" unique_id=668532660]
+scale = Vector2(20, 20)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_7822p")
+street_width = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1493661589]
+shape = SubResource("RectangleShape2D_htemk")
+debug_color = Color(0.29803923, 0.69803923, 0.9254902, 0.49411765)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=347519442]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_bk2vb")

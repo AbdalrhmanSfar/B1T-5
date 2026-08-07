@@ -25,7 +25,7 @@ size = Vector2(14, 35.5)
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_okhdc")
-metadata/Speed = 0.5
+metadata/Speed = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
 position = Vector2(0, -24)

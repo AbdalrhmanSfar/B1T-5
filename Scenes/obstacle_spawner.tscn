@@ -6,6 +6,7 @@
 [node name="Obstacle Spawner" type="Node2D" unique_id=1301030244]
 script = ExtResource("1_c8vt3")
 metadata/Objects = [ExtResource("2_a2tm6"), ExtResource("2_a2tm6"), ExtResource("2_a2tm6"), ExtResource("2_a2tm6")]
+metadata/index = 0
 
 [node name="Timer" type="Timer" parent="." unique_id=1341898455]
 one_shot = true
