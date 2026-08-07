@@ -17,7 +17,13 @@ script = ExtResource("1_udhrh")
 [node name="Logic Manager" type="Node" parent="." unique_id=568323203]
 unique_name_in_owner = true
 script = ExtResource("3_t25fw")
+lane_count = null
 street_width = 500.0
+start_lane = null
+switch_dur = null
+switch_lock = null
+initialEnergy = null
+energyAfterLongBlink = null
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true

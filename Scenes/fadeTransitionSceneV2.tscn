@@ -70,11 +70,19 @@ color = Color(0, 0, 0, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fadeTransition" unique_id=1363033403]
 libraries/ = SubResource("AnimationLibrary_8073u")
 
-[node name="Timer" type="Timer" parent="fadeTransition" unique_id=824404789]
+[node name="sceneTransitionTimer1" type="Timer" parent="fadeTransition" unique_id=824404789]
 one_shot = true
 
-[node name="Timer2" type="Timer" parent="fadeTransition" unique_id=1811097839]
+[node name="sceneTransitionTimer2" type="Timer" parent="fadeTransition" unique_id=1811097839]
 one_shot = true
 
-[connection signal="timeout" from="fadeTransition/Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="fadeTransition/Timer2" to="." method="_on_timer_2_timeout"]
+[node name="blinkTimer1" type="Timer" parent="fadeTransition" unique_id=202851186]
+one_shot = true
+
+[node name="blinkTimer2" type="Timer" parent="fadeTransition" unique_id=1856785147]
+one_shot = true
+
+[connection signal="timeout" from="fadeTransition/sceneTransitionTimer1" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="fadeTransition/sceneTransitionTimer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="fadeTransition/blinkTimer1" to="." method="_on_blink_timer_1_timeout"]
+[connection signal="timeout" from="fadeTransition/blinkTimer2" to="." method="_on_blink_timer_2_timeout"]
