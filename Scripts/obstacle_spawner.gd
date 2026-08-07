@@ -3,7 +3,7 @@ extends Node2D
 var initial_off_time_start = 3
 var initial_off_time_end = 20
 var range_start = 3
-var range_end = 30
+var range_end = 25
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Timer = $"Timer"
 @onready var objects: Array
