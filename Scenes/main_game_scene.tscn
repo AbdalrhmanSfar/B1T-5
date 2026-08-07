@@ -34,6 +34,7 @@ position = Vector2(114, -41)
 visible = false
 
 [node name="fadeTransition" parent="CanvasLayer" unique_id=1826309271 instance=ExtResource("5_mlj66")]
+unique_name_in_owner = true
 
 [node name="pauseMenu" parent="." unique_id=1959096775 instance=ExtResource("6_jl3vg")]
 layer = 2

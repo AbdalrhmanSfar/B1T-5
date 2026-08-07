@@ -4,7 +4,7 @@ extends Control
 @onready var creditsPanel: Panel = $creditsPanel
 @onready var mainButtons: VBoxContainer = $mainButtons
 @onready var settingsPanel: Panel = $settingsPanel
-@onready var leaderboard: Node2D = $Leaderboard
+#@onready var leaderboard: Node2D = $Leaderboard
 @onready var enterNameContainer: Control = $enterNameContainer
 @onready var nameBox: LineEdit = $enterNameContainer/LineEdit
 
