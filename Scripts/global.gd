@@ -16,6 +16,7 @@ func _ready() -> void:
 		config.save(settingsFilePath)
 	else: 
 		config.load(settingsFilePath)
+		playerName = config.get_value("settings", "name")
 		
 	
 	# leaderboard initialiser

@@ -49,3 +49,5 @@ func gameOver():
 	print("GAME OVER")
 	SilentWolf.Scores.save_score(Global.playerName, score)
 	score = 0
+	# just for now 
+	get_tree().change_scene_to_file("res://Scenes/mainMenuScene.tscn")

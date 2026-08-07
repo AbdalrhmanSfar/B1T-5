@@ -63,5 +63,6 @@ func _on_quit_credits_pressed() -> void:
 func _on_submit_name_button_pressed() -> void:
 	Global.config.set_value("settings","name",nameBox.text)
 	Global.config.save(Global.settingsFilePath)
+	Global.playerName = nameBox.text
 	enterNameContainer.hide()
 	mainButtons.show()

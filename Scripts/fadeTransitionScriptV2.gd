@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 
 func loadScene(sceneName: String): 
 	show()
+	print("fade scene show")
 	animPlayer.speed_scale = 1.0
 	sceneToLoad = sceneName
 	sceneTransitionTimer.start()
@@ -35,11 +36,12 @@ func _on_timer_timeout() -> void:
 
 
 func _on_timer_2_timeout() -> void:
-	print("hidden")
+	print("fade scene hide")
 	hide()
 
 func blink(blinkDuration: float, fadeDuration: float): 
 	show()
+	print("fade scene show")
 	animPlayer.speed_scale = 1.0 / fadeDuration
 	blinkTimer.wait_time = fadeDuration
 	blinkTimer2.wait_time = blinkDuration - 2 * fadeDuration
@@ -53,5 +55,6 @@ func _on_blink_timer_1_timeout() -> void:
 
 
 func _on_blink_timer_2_timeout() -> void:
-	print("play fadeout")
+	print("fade scene hide")
 	animPlayer.play("fadeOut")
+	hide()
