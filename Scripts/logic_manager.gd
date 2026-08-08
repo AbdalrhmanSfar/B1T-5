@@ -9,7 +9,7 @@ var lane_width: float
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
 var paused: bool = false
-var score: float = 2000 # time survived
+var score: float = 0 # time survived
 var multiplyer: float = 1.0
 @export var initialEnergy: int  = 10
 @export var energyAfterLongBlink: int = 10

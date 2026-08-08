@@ -9,6 +9,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# This line is for clearing the leaderboard date
+	# Just uncomment the code line and run the game for one time 
+	# THIS ACTION IS IRREVERSIBLE
+	#SilentWolf.Scores.wipe_leaderboard() 
+	
 	mainButtons.show()
 	settingsPanel.hide()
 	creditsPanel.hide()
@@ -16,6 +21,8 @@ func _ready() -> void:
 	if Global.config.get_value("settings", "name") == "a":
 		mainButtons.hide()
 		enterNameContainer.show()
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
