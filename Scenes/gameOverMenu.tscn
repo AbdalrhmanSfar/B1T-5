@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b8i1uplm3iq0o"]
+
+[ext_resource type="Script" uid="uid://dbf1y0p4373mk" path="res://Scripts/gameOverMenuScript.gd" id="1_iry3f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkeji"]
+
+[node name="gameOverMenu" type="CanvasLayer" unique_id=1318937838]
+process_mode = 3
+script = ExtResource("1_iry3f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=761955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Panel" type="Panel" parent="." unique_id=559117292]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -225.0
+offset_right = 300.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tkeji")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1743088709]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="restartButton" type="Button" parent="Panel/VBoxContainer" unique_id=756017859]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Restart"
+
+[node name="quitToMainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=2004862673]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Quit to Main Menu"
+
+[connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/quitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_pressed"]

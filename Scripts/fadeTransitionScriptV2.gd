@@ -56,5 +56,15 @@ func _on_blink_timer_1_timeout() -> void:
 
 func _on_blink_timer_2_timeout() -> void:
 	print("fade scene hide")
+	print("play fadeOut")
 	animPlayer.play("fadeOut")
+	await animPlayer.animation_finished
 	hide()
+
+func abort():
+	print("fade scene hide")
+	hide()
+	sceneTransitionTimer.stop()
+	sceneTransitionTimer2.stop()
+	blinkTimer.stop()
+	blinkTimer2.stop()

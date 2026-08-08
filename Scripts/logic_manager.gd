@@ -21,6 +21,9 @@ var multiplyer: float = 1.0
 @export var energyAfterLongBlink: int = 10
 var energy: int
 var timer = 0.0
+var alive = true
+
+@onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +35,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if !alive:
+		return
+	
 	timer += _delta
 	score += (multiplyer * _delta)
 	gameDifficulty = clampi(gameDifficulty,0,maxDifficulty)
@@ -45,17 +51,11 @@ func _process(_delta: float) -> void:
 			energy = energyAfterLongBlink
 			FadeTransitionSceneV2.blink(2.0, 0.5)
 	
-	if Input.is_action_just_pressed("pause"):
-		if not paused:
-			pause_game()
-		else:
-			unpause_game()
+	if get_tree().paused:
+		paused = true
+	else: 
+		paused = false
 
-func pause_game() -> void:
-	paused = true
-
-func unpause_game() -> void:
-	paused = false
 
 func shouldSaveHighScore(playerName: String, newScore: float):
 	print("Call coroutine")
@@ -82,8 +82,9 @@ func shouldSaveHighScore(playerName: String, newScore: float):
 
 func gameOver():
 	print("GAME OVER")
-	print(score)
 	shouldSaveHighScore(Global.playerName, score)
+	gameOverMenu.show()
+	get_tree().paused = true
 	score = 0
-	# just for now 
-	#get_tree().change_scene_to_file("res://Scenes/mainMenuScene.tscn")
+	alive = false
+	FadeTransitionSceneV2.abort()

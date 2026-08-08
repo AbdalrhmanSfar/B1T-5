@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://7eh0ubcdbynu" path="res://Scenes/pauseMenu.tscn" id="6_jl3vg"]
 [ext_resource type="Script" uid="uid://opkreomjtcmp" path="res://Scripts/despawn_area.gd" id="6_udhrh"]
 [ext_resource type="PackedScene" uid="uid://jxk1w8ukemlj" path="res://Scenes/energyDrink.tscn" id="7_hkk18"]
-[ext_resource type="Texture2D" uid="uid://dbngb11idjxjc" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
-[ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
@@ -23,7 +21,6 @@ script = ExtResource("1_udhrh")
 
 [node name="Logic Manager" type="Node" parent="." unique_id=568323203]
 unique_name_in_owner = true
-process_mode = 3
 script = ExtResource("3_t25fw")
 street_width = 300.0
 
@@ -80,54 +77,7 @@ layer = 2
 visible = false
 
 [node name="energyDrink" parent="." unique_id=184660362 instance=ExtResource("7_hkk18")]
-position = Vector2(-6, -133)
-
-[node name="gameOverMenu" parent="." unique_id=1318937838 instance=ExtResource("8_t25fw")]
-visible = false
-
-[node name="movingStreet" type="CanvasLayer" parent="." unique_id=578794239]
-layer = -1
-
-[node name="TextureRect3" type="TextureRect" parent="movingStreet" unique_id=518654188]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.5
-offset_top = -693.0
-offset_right = 348.5
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_jl3vg")
-
-[node name="TextureRect" type="TextureRect" parent="movingStreet" unique_id=1677986327]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.5
-offset_top = -63.0
-offset_right = 348.5
-offset_bottom = 567.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_jl3vg")
-
-[node name="TextureRect2" type="TextureRect" parent="movingStreet" unique_id=1637114303]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.5
-offset_top = 567.0
-offset_right = 348.5
-offset_bottom = 1197.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_jl3vg")
+position = Vector2(-6, 50)
+speed = 2000.0
 
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]
