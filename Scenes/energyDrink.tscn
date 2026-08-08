@@ -1,25 +1,27 @@
 [gd_scene format=3 uid="uid://jxk1w8ukemlj"]
 
 [ext_resource type="Script" uid="uid://bgw7m3b3wth7l" path="res://Scripts/energyDrinkScript.gd" id="1_l8bj6"]
-[ext_resource type="Texture2D" uid="uid://cakxjwen60mh0" path="res://Sprites/idle temp.png" id="2_a8blx"]
+[ext_resource type="Texture2D" uid="uid://dq0lxiwqex5q7" path="res://Sprites/energy drink.png" id="2_l8bj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8blx"]
+atlas = ExtResource("2_l8bj6")
+region = Rect2(0, 0, 27, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1mla2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_a8blx")
+"texture": SubResource("AtlasTexture_a8blx")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8bj6"]
-radius = 14.0
-height = 44.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8s6f"]
+size = Vector2(32, 53)
 
 [node name="energyDrink" type="CharacterBody2D" unique_id=184660362]
-position = Vector2(-3, 16)
 collision_layer = 5
 collision_mask = 2
 motion_mode = 1
@@ -29,5 +31,4 @@ script = ExtResource("1_l8bj6")
 sprite_frames = SubResource("SpriteFrames_1mla2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=81060390]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_l8bj6")
+shape = SubResource("RectangleShape2D_y8s6f")

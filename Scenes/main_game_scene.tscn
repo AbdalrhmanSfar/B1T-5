@@ -25,23 +25,13 @@ script = ExtResource("1_udhrh")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
-street_width = 470.0
-globalSpeedIncrements = Array[float]([0.0, 0.4, 0.8, 1.0, 1.5])
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
-position = Vector2(0, 200)
+position = Vector2(0, 350)
 
 [node name="Obstacle Spawner" parent="." unique_id=1301030244 instance=ExtResource("4_y8s6f")]
-position = Vector2(0, -820)
-
-[node name="Obstacle Spawner2" parent="." unique_id=168719229 instance=ExtResource("4_y8s6f")]
-position = Vector2(0, -820)
-metadata/index = 1
-
-[node name="Obstacle Spawner3" parent="." unique_id=388915472 instance=ExtResource("4_y8s6f")]
-position = Vector2(0, -820)
-metadata/index = 2
+position = Vector2(0, -810)
 
 [node name="Despawn area" type="Area2D" parent="." unique_id=1739724985]
 position = Vector2(0, 957)
@@ -81,7 +71,7 @@ layer = 2
 visible = false
 
 [node name="energyDrink" parent="." unique_id=184660362 instance=ExtResource("7_hkk18")]
-position = Vector2(-6, -133)
+position = Vector2(0, -133)
 
 [node name="gameOverMenu" parent="." unique_id=1318937838 instance=ExtResource("8_t25fw")]
 visible = false
@@ -97,7 +87,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -348.5
 offset_top = -1953.0
-offset_right = 348.5
+offset_right = 351.5
 offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -110,9 +100,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -348.5
-offset_top = 567.0
-offset_right = 348.5
-offset_bottom = 1197.0
+offset_top = -63.0
+offset_right = 351.5
+offset_bottom = 1827.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_jl3vg")
@@ -125,7 +115,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -348.5
 offset_top = 1827.0
-offset_right = 348.5
+offset_right = 351.5
 offset_bottom = 3717.0
 grow_horizontal = 2
 grow_vertical = 2

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://l8wph0dthwwu"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_6oq3g"]
+[ext_resource type="Texture2D" uid="uid://meibl0xngt66" path="res://Sprites/motor.png" id="2_6oq3g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cdk4"]
+atlas = ExtResource("2_6oq3g")
+region = Rect2(0, 0, 63, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cdk4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+size = Vector2(37, 97)
+
+[node name="Moving car2" type="CharacterBody2D" unique_id=91853143]
+collision_layer = 5
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_6oq3g")
+metadata/Speed = 0.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_g43dh")

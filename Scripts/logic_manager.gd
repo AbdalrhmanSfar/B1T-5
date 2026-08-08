@@ -1,15 +1,15 @@
 extends Node
 
 @export var lane_count: int = 3
-@export var street_width: float = 500
+@export var street_width: float = 470
 var lane_width: float
 @export var start_lane: int = 1
 @export var switch_dur: float = 0.12
 @export var switch_lock: bool = true
 @export var gameDifficulty: int = 0
-@export var difficultyThresholds: Array[float] = [3, 15, 40, 80, 120]
+@export var difficultyThresholds: Array[float] = [3, 6, 10, 30, 120]
 var maxDifficulty: int
-@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.4, 0.7, 1.5]
+@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.5, 3]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 
 @onready var player: Node = %"Player"

@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 		queue[i].position.y += ((streetsSpeed + logic.globalSpeedIncrement) * logic.speedScale * _delta)
 	var isOutside = not queue.back().get_viewport_rect().intersects(queue.back().get_global_rect())
 	if isOutside:
-		queue.back().position.y = queue[0].position.y - 630
+		queue.back().position.y = queue[0].position.y - 1890
 		queue.push_front(queue.pop_back())
 		print("moved road")
 	
