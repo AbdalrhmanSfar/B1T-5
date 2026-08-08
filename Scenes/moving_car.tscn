@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://dyum8rw6ch7bm"]
 
-[ext_resource type="Texture2D" uid="uid://cakxjwen60mh0" path="res://Sprites/idle temp.png" id="1_4p58j"]
-[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_okhdc"]
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_plh85"]
+[ext_resource type="Texture2D" uid="uid://degh51joeqe5b" path="res://Sprites/truck.png" id="2_plh85"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_okhdc"]
-atlas = ExtResource("1_4p58j")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpgvg"]
+atlas = ExtResource("2_plh85")
+region = Rect2(0, 0, 90, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_okhdc")
+"texture": SubResource("AtlasTexture_hpgvg")
 }],
 "loop": 1,
 "name": &"default",
@@ -19,19 +19,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
-size = Vector2(14, 35.5)
+size = Vector2(78, 145)
 
-[node name="Obstacle1" type="CharacterBody2D" unique_id=91853143]
+[node name="Moving car" type="CharacterBody2D" unique_id=91853143]
 collision_layer = 5
 collision_mask = 2
 motion_mode = 1
-script = ExtResource("1_okhdc")
-metadata/Speed = 1.0
+script = ExtResource("1_plh85")
+metadata/Speed = 0.7
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_bk2vb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
-position = Vector2(0, -17.75)
+position = Vector2(0, -18.5)
 shape = SubResource("RectangleShape2D_g43dh")

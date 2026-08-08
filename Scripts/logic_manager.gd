@@ -7,13 +7,14 @@ var lane_width: float
 @export var switch_dur: float = 0.12
 @export var switch_lock: bool = true
 @export var gameDifficulty: int = 0
-@export var difficultyThresholds: Array[float] = [30, 60, 120, 360, 600]
+@export var difficultyThresholds: Array[float] = [3, 15, 40, 80, 120]
 var maxDifficulty: int
 @export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.4, 0.7, 1.5]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
+const speedScale = 150.0 # speed will be Speed field * speedScale
 var paused: bool = false
 var score: float = 0 # time survived
 var multiplyer: float = 1.0

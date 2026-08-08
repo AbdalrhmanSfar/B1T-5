@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfrkbvx2r1mp2"
-path="res://.godot/imported/street tileset ye.png-8716f7b0feba6d8c43f47e9a8d2889b8.ctex"
+uid="uid://degh51joeqe5b"
+path="res://.godot/imported/truck.png-fa2b8b2d0dc4ae9e3c434b1adf91fc3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/street tileset ye.png"
-dest_files=["res://.godot/imported/street tileset ye.png-8716f7b0feba6d8c43f47e9a8d2889b8.ctex"]
+source_file="res://Sprites/truck.png"
+dest_files=["res://.godot/imported/truck.png-fa2b8b2d0dc4ae9e3c434b1adf91fc3e.ctex"]
 
 [params]
 

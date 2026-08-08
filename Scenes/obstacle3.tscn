@@ -3,22 +3,22 @@
 [ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_a4rli"]
 [ext_resource type="Texture2D" uid="uid://cakxjwen60mh0" path="res://Sprites/idle temp.png" id="2_bcm3l"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_okhdc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhdc1"]
 atlas = ExtResource("2_bcm3l")
 region = Rect2(0, 0, 48, 48)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdhts"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_okhdc")
+"texture": SubResource("AtlasTexture_jhdc1")
 }],
 "loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fl3vk"]
 size = Vector2(14, 35.5)
 
 [node name="Obstacle1" type="CharacterBody2D" unique_id=91853143]
@@ -30,8 +30,8 @@ metadata/Speed = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
 position = Vector2(0, -24)
-sprite_frames = SubResource("SpriteFrames_bk2vb")
+sprite_frames = SubResource("SpriteFrames_qdhts")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
 position = Vector2(0, -17.75)
-shape = SubResource("RectangleShape2D_g43dh")
+shape = SubResource("RectangleShape2D_fl3vk")

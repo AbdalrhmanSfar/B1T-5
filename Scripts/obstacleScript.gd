@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const speedScale = 100.0 # obstacle speed will be Speed field * speedScale
 var speed: float # edit from meta data for each different obstacle. can be edited from some other script if needed
 
 #@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -14,7 +13,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if logic.paused:
 		return
-	velocity.y = (speed+logic.globalSpeedIncrement)*speedScale
+	velocity.y = (speed+logic.globalSpeedIncrement)*logic.speedScale
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		logic.gameOver()

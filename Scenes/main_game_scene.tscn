@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7eh0ubcdbynu" path="res://Scenes/pauseMenu.tscn" id="6_jl3vg"]
 [ext_resource type="Script" uid="uid://opkreomjtcmp" path="res://Scripts/despawn_area.gd" id="6_udhrh"]
 [ext_resource type="PackedScene" uid="uid://jxk1w8ukemlj" path="res://Scenes/energyDrink.tscn" id="7_hkk18"]
-[ext_resource type="Texture2D" uid="uid://dbngb11idjxjc" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
+[ext_resource type="Texture2D" uid="uid://bfrkbvx2r1mp2" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
 [ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
@@ -26,6 +26,7 @@ unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
 street_width = 470.0
+globalSpeedIncrements = Array[float]([0.0, 0.4, 0.8, 1.0, 1.5])
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
@@ -88,20 +89,6 @@ visible = false
 [node name="movingStreet" type="CanvasLayer" parent="." unique_id=578794239]
 layer = -1
 
-[node name="TextureRect3" type="TextureRect" parent="movingStreet" unique_id=518654188]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -348.5
-offset_top = -693.0
-offset_right = 348.5
-offset_bottom = -63.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_jl3vg")
-
 [node name="TextureRect" type="TextureRect" parent="movingStreet" unique_id=1677986327]
 anchors_preset = 8
 anchor_left = 0.5
@@ -109,9 +96,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -348.5
-offset_top = -63.0
+offset_top = -1953.0
 offset_right = 348.5
-offset_bottom = 567.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_jl3vg")
@@ -126,6 +113,20 @@ offset_left = -348.5
 offset_top = 567.0
 offset_right = 348.5
 offset_bottom = 1197.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_jl3vg")
+
+[node name="TextureRect3" type="TextureRect" parent="movingStreet" unique_id=529309286]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.5
+offset_top = 1827.0
+offset_right = 348.5
+offset_bottom = 3717.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_jl3vg")
