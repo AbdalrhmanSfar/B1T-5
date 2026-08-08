@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://eqtnvw6lt544"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_2gb7i"]
+[ext_resource type="Texture2D" uid="uid://b8h13bpt5mble" path="res://Sprites/npc car.png" id="2_2gb7i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veuci"]
+atlas = ExtResource("2_2gb7i")
+region = Rect2(0, 0, 81, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veuci")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+size = Vector2(50, 131)
+
+[node name="Moving car2" type="CharacterBody2D" unique_id=91853143]
+collision_layer = 5
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_2gb7i")
+metadata/Speed = 0.6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_g43dh")

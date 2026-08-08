@@ -9,7 +9,7 @@ var lane_width: float
 @export var gameDifficulty: int = 0
 @export var difficultyThresholds: Array[float] = [3, 6, 10, 30, 120]
 var maxDifficulty: int
-@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.5, 3]
+@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.2, 2]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 
 @onready var player: Node = %"Player"

@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://qsvxyd26ylns" path="res://Scripts/obstacle_spawner.gd" id="1_c8vt3"]
 [ext_resource type="PackedScene" uid="uid://dyum8rw6ch7bm" path="res://Scenes/moving_car.tscn" id="2_a2tm6"]
 [ext_resource type="PackedScene" uid="uid://l8wph0dthwwu" path="res://Scenes/moving_motor.tscn" id="3_yc3e8"]
-[ext_resource type="PackedScene" uid="uid://jxk1w8ukemlj" path="res://Scenes/energyDrink.tscn" id="4_mq1l0"]
+[ext_resource type="PackedScene" uid="uid://eqtnvw6lt544" path="res://Scenes/moving_ncp_car.tscn" id="5_gfwja"]
 
 [node name="Obstacle Spawner" type="Node2D" unique_id=1301030244]
 script = ExtResource("1_c8vt3")
-metadata/Objects = [ExtResource("2_a2tm6"), ExtResource("3_yc3e8"), ExtResource("4_mq1l0")]
+metadata/Objects = [ExtResource("2_a2tm6"), ExtResource("3_yc3e8"), ExtResource("5_gfwja")]
 
 [node name="lane1" type="Node2D" parent="." unique_id=1437896092]
 
