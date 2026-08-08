@@ -9,7 +9,7 @@ var lane_width: float
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
 var paused: bool = false
-var score: float = 0.0 # time survived
+var score: float = 2000 # time survived
 var multiplyer: float = 1.0
 @export var initialEnergy: int  = 10
 @export var energyAfterLongBlink: int = 10
@@ -45,9 +45,33 @@ func pause_game() -> void:
 func unpause_game() -> void:
 	paused = false
 
+func shouldSaveHighScore(playerName: String, newScore: float):
+	print("Call coroutine")
+	print(newScore)
+	var playerScores: Dictionary = await SilentWolf.Scores.get_top_score_by_player(playerName).sw_top_player_score_complete
+	var shouldSave = false
+	print("check if the player has a score")
+	if playerScores.has("top_score") and playerScores.top_score != null:
+		print("player has score")
+		var highScore = playerScores.top_score.score
+		if newScore > highScore:
+			shouldSave = true
+			# delete
+			var oldHighScoreID = playerScores.top_score.score_id
+			await SilentWolf.Scores.delete_score(oldHighScoreID)
+	else:
+		print("player does not have score")
+		shouldSave = true
+	print(shouldSave)
+	print(newScore)
+	if shouldSave:
+		await SilentWolf.Scores.save_score(Global.playerName, newScore)
+	
+
 func gameOver():
 	print("GAME OVER")
-	SilentWolf.Scores.save_score(Global.playerName, score)
+	print(score)
+	shouldSaveHighScore(Global.playerName, score)
 	score = 0
 	# just for now 
-	get_tree().change_scene_to_file("res://Scenes/mainMenuScene.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/mainMenuScene.tscn")

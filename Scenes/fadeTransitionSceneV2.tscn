@@ -73,6 +73,9 @@ libraries/ = SubResource("AnimationLibrary_8073u")
 [node name="sceneTransitionTimer1" type="Timer" parent="fadeTransition" unique_id=824404789]
 one_shot = true
 
+[node name="sceneTransitionTimer3" type="Timer" parent="fadeTransition" unique_id=1572468922]
+one_shot = true
+
 [node name="sceneTransitionTimer2" type="Timer" parent="fadeTransition" unique_id=1811097839]
 one_shot = true
 
@@ -83,6 +86,7 @@ one_shot = true
 one_shot = true
 
 [connection signal="timeout" from="fadeTransition/sceneTransitionTimer1" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="fadeTransition/sceneTransitionTimer3" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="fadeTransition/sceneTransitionTimer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="fadeTransition/blinkTimer1" to="." method="_on_blink_timer_1_timeout"]
 [connection signal="timeout" from="fadeTransition/blinkTimer2" to="." method="_on_blink_timer_2_timeout"]

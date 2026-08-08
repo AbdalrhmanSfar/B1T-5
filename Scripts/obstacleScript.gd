@@ -18,5 +18,6 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		logic.gameOver()
+		queue_free() 
 
 	
