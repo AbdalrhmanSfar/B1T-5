@@ -35,10 +35,13 @@ func _process(_delta: float) -> void:
 
 func spawnRandomObject(laneIndex: int) -> void:
 	var t = randi_range(0,objects.size()-1)
-	while laneQueue[laneIndex].size() > 0 and t == 0:
-		t = randi_range(0,objects.size()-1)
 	var the_chosen_one: PackedScene = objects[t]
 	var object = the_chosen_one.instantiate()
+	while laneQueue[laneIndex].size() > 0 and object.has_meta("evilCarDetection"):
+		object.queue_free()
+		t = randi_range(0,objects.size()-1)
+		the_chosen_one = objects[t]
+		object = the_chosen_one.instantiate()
 	print("Spawned")
 	lanes[laneIndex].add_child(object)
 	laneQueue[laneIndex].push_front(object)
