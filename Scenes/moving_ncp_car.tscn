@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://eqtnvw6lt544"]
 
 [ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_2gb7i"]
-[ext_resource type="Texture2D" uid="uid://b8h13bpt5mble" path="res://Sprites/npc car.png" id="2_2gb7i"]
+[ext_resource type="Texture2D" uid="uid://b85ps0ojadoq1" path="res://Sprites/npc car.png" id="2_2gb7i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_veuci"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gb7i"]
 atlas = ExtResource("2_2gb7i")
-region = Rect2(0, 0, 81, 144)
+region = Rect2(0, 0, 65, 144)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_veuci")
+"texture": SubResource("AtlasTexture_2gb7i")
 }],
 "loop": 1,
 "name": &"default",

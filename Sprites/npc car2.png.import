@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b85ps0ojadoq1"
-path="res://.godot/imported/npc car.png-8790ed08c59b058457a4a15057e03918.ctex"
+uid="uid://pldfmgm6hjv1"
+path="res://.godot/imported/npc car2.png-683266072cf55c092bca488c5b2e8864.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/npc car.png"
-dest_files=["res://.godot/imported/npc car.png-8790ed08c59b058457a4a15057e03918.ctex"]
+source_file="res://Sprites/npc car2.png"
+dest_files=["res://.godot/imported/npc car2.png-683266072cf55c092bca488c5b2e8864.ctex"]
 
 [params]
 

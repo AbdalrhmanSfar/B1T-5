@@ -9,7 +9,7 @@ var lane_width: float
 @export var gameDifficulty: int = 0
 @export var difficultyThresholds: Array[float] = [3, 6, 10, 30, 120]
 var maxDifficulty: int
-@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.2, 2]
+@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.8, 3]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 
 @onready var player: Node = %"Player"
@@ -18,7 +18,7 @@ const speedScale = 150.0 # speed will be Speed field * speedScale
 var paused: bool = false
 var score: float = 0 # time survived
 var multiplyer: float = 1.0
-@export var initialEnergy: int  = 10
+@export var initialEnergy: int  = 30
 @export var energyAfterLongBlink: int = 10
 var energy: int
 var timer = 0.0

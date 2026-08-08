@@ -27,8 +27,6 @@ func _process(_delta: float) -> void:
 				laneQueue[i].pop_back()
 			else:
 				break
-	
-	for i in range(laneQueue.size()):
 		if laneQueue[i].size():
 			laneLatestPosition[i]=laneQueue[i][0].position.y - position.y
 		else:
@@ -36,7 +34,10 @@ func _process(_delta: float) -> void:
 
 
 func spawnRandomObject(laneIndex: int) -> void:
-	var the_chosen_one: PackedScene = objects[randi_range(0,objects.size()-1)]
+	var t = randi_range(0,objects.size()-1)
+	while laneQueue[laneIndex].size() > 0 and t == 0:
+		t = randi_range(0,objects.size()-1)
+	var the_chosen_one: PackedScene = objects[t]
 	var object = the_chosen_one.instantiate()
 	print("Spawned")
 	lanes[laneIndex].add_child(object)

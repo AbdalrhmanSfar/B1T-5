@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bxfh8j1soq4t8"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_hq8y5"]
+[ext_resource type="Texture2D" uid="uid://pldfmgm6hjv1" path="res://Sprites/npc car2.png" id="2_hq8y5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edjc8"]
+atlas = ExtResource("2_hq8y5")
+region = Rect2(0, 0, 90, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edjc8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Car" type="CharacterBody2D" unique_id=668532660]
+collision_layer = 5
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_hq8y5")
+metadata/Speed = 2.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=347519442]
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+flip_v = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1072125844]
+position = Vector2(1, -8)
+rotation = 3.1415927
+polygon = PackedVector2Array(12, -83, 32, -69, 32, 59, 21, 66, 0, 70, -18, 68, -31, 58, -31, -67, -11, -83)
