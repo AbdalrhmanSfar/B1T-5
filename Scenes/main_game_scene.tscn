@@ -27,11 +27,10 @@ unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
 switch_dur = 0.1
-gameDifficulty = 1
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
-position = Vector2(0, 350)
+position = Vector2(0, 278.56)
 lean_degrees = 15.0
 
 [node name="Obstacle Spawner" parent="." unique_id=1301030244 instance=ExtResource("4_y8s6f")]

@@ -11,6 +11,8 @@ var lane_width: float
 var maxDifficulty: int
 @export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.8, 3]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
+var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
+@export var lerp_speed: float = 12.0
 
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
@@ -32,6 +34,8 @@ func _ready() -> void:
 	lane_width = street_width / float(lane_count)
 	energy = initialEnergy
 	maxDifficulty = difficultyThresholds.size()-1
+	globalSpeedIncrementTarget = globalSpeedIncrements[0]
+	globalSpeedIncrement = globalSpeedIncrementTarget
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,7 +48,8 @@ func _process(_delta: float) -> void:
 	gameDifficulty = clampi(gameDifficulty,0,maxDifficulty)
 	if gameDifficulty < maxDifficulty and score >= difficultyThresholds[gameDifficulty]:
 		gameDifficulty += 1
-		globalSpeedIncrement = globalSpeedIncrements[gameDifficulty]
+		globalSpeedIncrementTarget = globalSpeedIncrements[gameDifficulty]
+	globalSpeedIncrement = lerp(globalSpeedIncrement, globalSpeedIncrementTarget, min(1.0, _delta * lerp_speed))
 	
 	if int(timer) != int(timer - _delta): 
 		energy -= 1
