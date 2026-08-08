@@ -14,7 +14,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if logic.paused:
 		return
-	velocity.y = speed*speedScale
+	velocity.y = (speed+logic.globalSpeedIncrement)*speedScale
 	move_and_slide()
 	if get_slide_collision_count() > 0:
 		logic.gameOver()

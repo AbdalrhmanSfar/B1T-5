@@ -6,10 +6,16 @@ var lane_width: float
 @export var start_lane: int = 1
 @export var switch_dur: float = 0.12
 @export var switch_lock: bool = true
+@export var gameDifficulty: int = 0
+@export var difficultyThresholds: Array[float] = [30, 60, 120, 360, 600]
+var maxDifficulty: int
+@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.4, 0.7, 1.5]
+var globalSpeedIncrement: float = globalSpeedIncrements[0]
+
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
 var paused: bool = false
-var score: float = 2000 # time survived
+var score: float = 0 # time survived
 var multiplyer: float = 1.0
 @export var initialEnergy: int  = 10
 @export var energyAfterLongBlink: int = 10
@@ -21,12 +27,18 @@ var timer = 0.0
 func _ready() -> void:
 	lane_width = street_width / float(lane_count)
 	energy = initialEnergy
+	maxDifficulty = difficultyThresholds.size()-1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	timer += _delta
 	score += (multiplyer * _delta)
+	gameDifficulty = clampi(gameDifficulty,0,maxDifficulty)
+	if gameDifficulty < maxDifficulty and score >= difficultyThresholds[gameDifficulty]:
+		gameDifficulty += 1
+		globalSpeedIncrement = globalSpeedIncrements[gameDifficulty]
+	
 	if int(timer) != int(timer - _delta): 
 		energy -= 1
 		if energy == 0:

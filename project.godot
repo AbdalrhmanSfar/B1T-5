@@ -28,8 +28,8 @@ FadeTransitionSceneV2="*uid://c0pbgmf6u3ff6"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1120
+window/size/viewport_height=630
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

@@ -2,8 +2,8 @@ extends Node2D
 
 var initial_off_time_start = 3
 var initial_off_time_end = 20
-var range_start = 3
-var range_end = 25
+var range_start: Array[float] = [5,4,3,2,1]
+var range_end: Array[float] = [25,15,7,7,7]
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Timer = $"Timer"
 @onready var objects: Array
@@ -17,8 +17,9 @@ func _ready() -> void:
 	timer.start(randi_range(initial_off_time_start,initial_off_time_end))
 
 func _on_timer_timeout() -> void:
-	spawnRandomObject()
-	timer.start(randi_range(range_start,range_end))
+	if get_child_count() < 3:
+		spawnRandomObject()
+	timer.start(randf_range(range_start[logic.gameDifficulty],range_end[logic.gameDifficulty]))
 	
 func spawnRandomObject() -> void:
 	var the_chosen_one: PackedScene = objects[randi_range(0,objects.size()-1)]
