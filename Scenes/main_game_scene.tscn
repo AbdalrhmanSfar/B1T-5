@@ -25,7 +25,7 @@ script = ExtResource("1_udhrh")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
-street_width = 300.0
+street_width = 470.0
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
