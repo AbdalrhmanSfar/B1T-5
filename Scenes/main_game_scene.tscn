@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://jxk1w8ukemlj" path="res://Scenes/energyDrink.tscn" id="7_hkk18"]
 [ext_resource type="Texture2D" uid="uid://bfrkbvx2r1mp2" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
 [ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
+[ext_resource type="PackedScene" uid="uid://cnrqqfrpgnfds" path="res://Scenes/Music.tscn" id="10_mlj66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
@@ -25,10 +26,13 @@ script = ExtResource("1_udhrh")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
+switch_dur = 0.1
+gameDifficulty = 1
 
 [node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
 position = Vector2(0, 350)
+lean_degrees = 15.0
 
 [node name="Obstacle Spawner" parent="." unique_id=1301030244 instance=ExtResource("4_y8s6f")]
 position = Vector2(0, -810)
@@ -56,6 +60,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 239.0
+offset_top = -493.0
+offset_right = 239.0
+offset_bottom = -493.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
@@ -120,5 +128,7 @@ offset_bottom = 3717.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_jl3vg")
+
+[node name="Music" parent="." unique_id=578597242 instance=ExtResource("10_mlj66")]
 
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]

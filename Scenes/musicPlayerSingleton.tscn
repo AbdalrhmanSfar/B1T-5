@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://btwqpqs4fwemk"]
 
-[ext_resource type="AudioStream" uid="uid://bgn2ids4ttabb" path="res://Assets/temp/Hollow Knight OST - City of Tears(MP3_320K).mp3" id="1_sjpnl"]
-
 [node name="musicPlayer" type="AudioStreamPlayer" unique_id=465482614]
 process_mode = 3
-stream = ExtResource("1_sjpnl")
 autoplay = true
 bus = &"Music"
