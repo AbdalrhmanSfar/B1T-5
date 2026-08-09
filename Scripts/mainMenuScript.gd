@@ -72,7 +72,9 @@ func _process(_delta: float) -> void:
 		acceptDirection.emit()
 
 func _on_play_button_pressed() -> void:
-	FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")
+	levelSelector.show()
+	SFX.button_sfx()
+	#FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")
 	#fadePanel.show()
 	#fadePanel.get_node("fadeTimer").start()
 	#fadePanel.get_node("AnimationPlayer").play("fadeIn")
@@ -110,7 +112,6 @@ func _on_submit_name_button_pressed() -> void:
 
 func _on_first_play_button_pressed() -> void:
 	levelSelector.show()
-
 
 func startTutorial():
 	tutorialInstructions.show()
@@ -191,3 +192,8 @@ func _on_tutorial_button_pressed() -> void:
 	mainButtons.hide()
 	levelSelector.hide()
 	startTutorial()
+
+
+func _on_play_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+	pass # Replace with function body.
