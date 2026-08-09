@@ -7,9 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://br4no7vflgs8r" path="res://Scenes/car.tscn" id="3_ipe3l"]
 [ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="5_ipe3l"]
 [ext_resource type="PackedScene" uid="uid://eqtnvw6lt544" path="res://Scenes/moving_ncp_car.tscn" id="5_kpbwx"]
+[ext_resource type="Texture2D" uid="uid://dx73a65m6dnd7" path="res://Sprites/ENTER.png" id="7_k35w8"]
 [ext_resource type="Script" uid="uid://jdycn8fmu1ig" path="res://Scenes/mainMenuObstacleScript.gd" id="8_5astm"]
 [ext_resource type="PackedScene" uid="uid://l8wph0dthwwu" path="res://Scenes/moving_motor.tscn" id="9_1s6w1"]
 [ext_resource type="PackedScene" uid="uid://bxfh8j1soq4t8" path="res://Scenes/evilcar.tscn" id="10_k35w8"]
+[ext_resource type="AudioStream" uid="uid://dncydtq84vc42" path="res://Assets/Music/MenuLoop.mp3" id="12_foytc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k35w8"]
 bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
@@ -594,7 +596,6 @@ visible = false
 libraries/ = SubResource("AnimationLibrary_ihg27")
 
 [node name="tutorialInstructions" type="Control" parent="." unique_id=1034000584]
-visible = false
 layout_mode = 1
 anchor_right = 0.55
 anchor_bottom = 1.0
@@ -610,18 +611,24 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
-text = "It's too late for 
-driving You're about 
-to fall asleep on the
-wheel Can you make
- it home safely?
+text = "It's very late
+You're falling asleep
+on the wheel 
+
+Make it home safely.
 
 
-
-Press Enter to 
-proceed"
+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Enter0" type="TextureRect" parent="tutorialInstructions/Label5" unique_id=1429316734]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 786.0
+offset_right = 612.9643
+offset_bottom = 908.0
+texture = ExtResource("7_k35w8")
 
 [node name="Label" type="Label" parent="tutorialInstructions" unique_id=1046045121]
 visible = false
@@ -634,27 +641,25 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
-text = "Press A or Left 
-Arrow to move left 
-and D or Right Arrow
-to move right"
+text = "Press
+
+
+A/D
+or
+Left/Right
+
+
+to steer!"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="tutorialInstructions" unique_id=1618228555]
+[node name="Enter1" type="TextureRect" parent="tutorialInstructions" unique_id=2088350685]
 visible = false
 layout_mode = 0
-offset_top = 600.0
-offset_right = 1056.0
-offset_bottom = 750.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("5_ipe3l")
-theme_override_font_sizes/font_size = 48
-text = "
-Press Enter to 
-proceed"
-horizontal_alignment = 1
+offset_left = 467.0
+offset_top = 786.0
+offset_right = 612.9643
+offset_bottom = 908.0
+texture = ExtResource("7_k35w8")
 
 [node name="Label3" type="Label" parent="tutorialInstructions" unique_id=893921084]
 visible = false
@@ -684,13 +689,17 @@ theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
 text = "Ouch
-Try Again!!
-
-
-Press Enter to try 
-again"
+Try Again!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Enter2" type="TextureRect" parent="tutorialInstructions/Label4" unique_id=772507267]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 786.0
+offset_right = 612.9643
+offset_bottom = 908.0
+texture = ExtResource("7_k35w8")
 
 [node name="Label6" type="Label" parent="tutorialInstructions" unique_id=1641397942]
 visible = false
@@ -720,9 +729,46 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
-text = "Press Enter to play"
+text = "Start?"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Enter3" type="TextureRect" parent="tutorialInstructions/Label7" unique_id=879370779]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 160.0
+offset_right = 612.9643
+offset_bottom = 282.0
+texture = ExtResource("7_k35w8")
+
+[node name="Label8" type="Label" parent="tutorialInstructions" unique_id=2064871026]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 48
+text = "Wasn't that dark car
+going the wrong way?
+
+
+I'm sure those
+won't be a problem.."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enter4" type="TextureRect" parent="tutorialInstructions/Label8" unique_id=187904860]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 786.0
+offset_right = 612.9643
+offset_bottom = 908.0
+texture = ExtResource("7_k35w8")
 
 [node name="obstacles" type="Node2D" parent="." unique_id=1821821866]
 
@@ -742,6 +788,9 @@ script = ExtResource("8_5astm")
 
 [node name="killObstacles" type="Node2D" parent="." unique_id=534882354]
 position = Vector2(1023, 1264)
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=729281154]
+stream = ExtResource("12_foytc")
 
 [connection signal="mouse_entered" from="creditsPanel/quitCredits" to="." method="_on_quit_credits_mouse_entered"]
 [connection signal="pressed" from="creditsPanel/quitCredits" to="." method="_on_quit_credits_pressed"]

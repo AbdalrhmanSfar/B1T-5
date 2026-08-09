@@ -1,5 +1,5 @@
 extends Control
-
+@onready var music: AudioStreamPlayer = $MenuMusic
 @onready var creditsPanel: Panel = $creditsPanel
 @onready var mainButtons: VBoxContainer = $mainButtons
 @onready var settingsPanel: CanvasLayer = $settingsPanel
@@ -117,16 +117,18 @@ func _on_first_play_button_pressed() -> void:
 	levelSelector.show()
 
 func startTutorial():
+	startMusic()
 	tutorialInstructions.show()
 	tutorialMessages[0].show()
 	await acceptDirection
+	SFX.button_sfx()
 	tutorialMessages[0].hide()
-	
 	logic.alive = true
 	tutorialMessages[1].show()
 	await car.carMoved
 	tutorialMessages[2].show()
 	await acceptDirection
+	SFX.button_sfx()
 	tutorialMessages[1].hide()
 	tutorialMessages[2].hide()
 	while 1:
@@ -146,6 +148,7 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
+			SFX.button_sfx()
 			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
@@ -161,6 +164,7 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
+			SFX.button_sfx()
 			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
@@ -176,21 +180,28 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
+			SFX.button_sfx()
 			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
 		
 		break
 	tutorialMessages[3].hide()
+	tutorialMessages[7].show()
+	await acceptDirection
+	tutorialMessages[7].hide()
+	SFX.button_sfx()
 	tutorialMessages[5].show()
 	await get_tree().create_timer(1.5).timeout
 	FadeTransitionSceneV2.blink(2.0,0.5,0.5)
 	await get_tree().create_timer(1.3).timeout
 	tutorialMessages[6].show()
 	await acceptDirection
+	SFX.button_sfx()
 	_on_play_button_pressed()
 
-
+func startMusic():
+	music.play()
 func _on_tutorial_button_pressed() -> void:
 	SFX.button_sfx()
 	mainButtons.hide()
