@@ -74,7 +74,7 @@ func _move_to_lane_center(lane_index: int, dir: float) -> void:
 		_tween.tween_property(
 			steering_wheel, "rotation_degrees",
 			dir * lean_degrees * 3,
-			rot_time * 3
+			rot_time
 		)
 
 	_tween.tween_property(self, "position", target_pos, logic.switch_dur)
@@ -89,7 +89,7 @@ func _move_to_lane_center(lane_index: int, dir: float) -> void:
 		_tween.tween_property(
 			steering_wheel, "rotation_degrees",
 			0.0,
-			rot_time * 2
+			rot_time
 		)
 
 	_tween.finished.connect(func() -> void:
