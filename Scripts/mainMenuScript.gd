@@ -5,10 +5,21 @@ extends Control
 @onready var settingsPanel: CanvasLayer = $settingsPanel
 @onready var enterNameContainer: Control = $enterNameContainer
 @onready var nameBox: LineEdit = $enterNameContainer/LineEdit
+@onready var levelSelector: HBoxContainer = $levelSelector
+@onready var playButton: Button = $mainButtons/playButton
 
-@export var streetsSpeed = 1.0 # base speed before car speeding up (which is the increase in difficulty)
+var streetsSpeed = 200 # base speed before car speeding up (which is the increase in difficulty)
 @onready var streets: Control = $movingStreet/Control
 var queue: Array = []
+@onready var animPlayer: AnimationPlayer = $AnimationPlayer
+
+signal acceptDirection
+var tutorialMessages: Array = []
+@onready var tutorialInstructions: Control = $tutorialInstructions
+@onready var car: CharacterBody2D = $movingStreet/Car
+@onready var logic: Node = %"Logic Manager"
+@onready var obstacles: Node2D = $obstacles
+var initialObstacleY: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,9 +31,16 @@ func _ready() -> void:
 	for child in streets.get_children():
 		queue.push_back(child)
 	
+	for child in tutorialInstructions.get_children():
+		tutorialMessages.push_back(child)
+	
+	for child in obstacles.get_children():
+		initialObstacleY.push_back(child.position.y)
+	
 	mainButtons.show()
 	settingsPanel.hide()
 	creditsPanel.hide()
+	tutorialInstructions.hide()
 	
 	if Global.config.get_value("settings", "name") == "a":
 		mainButtons.hide()
@@ -49,6 +67,9 @@ func _process(_delta: float) -> void:
 		queue.back().position.y = queue[0].position.y - 1890
 		queue.push_front(queue.pop_back())
 		print("moved road")
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		acceptDirection.emit()
 
 func _on_play_button_pressed() -> void:
 	FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")
@@ -85,3 +106,88 @@ func _on_submit_name_button_pressed() -> void:
 	Global.playerName = nameBox.text
 	enterNameContainer.hide()
 	mainButtons.show()
+
+
+func _on_first_play_button_pressed() -> void:
+	levelSelector.show()
+
+
+func startTutorial():
+	tutorialInstructions.show()
+	tutorialMessages[0].show()
+	await acceptDirection
+	tutorialMessages[0].hide()
+	
+	logic.alive = true
+	tutorialMessages[1].show()
+	await car.carMoved
+	tutorialMessages[2].show()
+	await acceptDirection
+	tutorialMessages[1].hide()
+	tutorialMessages[2].hide()
+	while 1:
+		tutorialMessages[3].show()
+		for obstacle in obstacles.get_children():
+			obstacle.paused = false
+			obstacle.sent = false
+		
+		await logic.obsticleDied
+		if logic.obsticleDiedID == 0: 
+			tutorialMessages[3].hide()
+			tutorialMessages[4].show()
+			var i = 0
+			for obstacle in obstacles.get_children():
+				obstacle.position.y = initialObstacleY[i]
+				obstacle.paused = true
+				i += 1
+			streetsSpeed = 0
+			await acceptDirection
+			tutorialMessages[3].hide()
+			streetsSpeed = 200
+			continue
+		
+		await logic.obsticleDied
+		if logic.obsticleDiedID == 0: 
+			tutorialMessages[3].hide()
+			tutorialMessages[4].show()
+			var i = 0
+			for obstacle in obstacles.get_children():
+				obstacle.position.y = initialObstacleY[i]
+				obstacle.paused = true
+				i += 1
+			streetsSpeed = 0
+			await acceptDirection
+			tutorialMessages[3].hide()
+			streetsSpeed = 200
+			continue
+		
+		await logic.obsticleDied
+		if logic.obsticleDiedID == 0: 
+			tutorialMessages[3].hide()
+			tutorialMessages[4].show()
+			var i = 0
+			for obstacle in obstacles.get_children():
+				obstacle.position.y = initialObstacleY[i]
+				obstacle.paused = true
+				i += 1
+			streetsSpeed = 0
+			await acceptDirection
+			tutorialMessages[3].hide()
+			streetsSpeed = 200
+			continue
+		
+		break
+	tutorialMessages[3].hide()
+	tutorialMessages[5].show()
+	await get_tree().create_timer(1.5).timeout
+	FadeTransitionSceneV2.blink(2.0,0.5,0.5)
+	await get_tree().create_timer(1.3).timeout
+	tutorialMessages[6].show()
+	await acceptDirection
+	_on_play_button_pressed()
+
+
+func _on_tutorial_button_pressed() -> void:
+	mainButtons.hide()
+	levelSelector.hide()
+	startTutorial()

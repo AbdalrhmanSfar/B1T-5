@@ -64,8 +64,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("6_g2nae")
-theme_override_font_sizes/font_size = 64
-text = "Score:"
+theme_override_font_sizes/font_size = 48
+text = " Score:"
 vertical_alignment = 1
 
 [node name="pauseMenu" parent="." unique_id=1959096775 instance=ExtResource("6_jl3vg")]

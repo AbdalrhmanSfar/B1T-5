@@ -7,6 +7,7 @@ var _tween: Tween
 
 @export var lean_degrees := 6.0
 @export var rotate_time := 0.35
+signal carMoved
 
 func _ready() -> void:
 	current_lane = clampi(logic.start_lane, 0, logic.lane_count - 1)
@@ -17,13 +18,19 @@ func _ready() -> void:
 	rotation_degrees = 0.0
 
 func _process(_delta: float) -> void:
+	if !logic.alive:
+		return
+	
 	if logic.switch_lock and is_switching:
 		return
 
 	if Input.is_action_just_pressed("lane_right"):
 		request_lane(current_lane + 1)
+		carMoved.emit()
 	elif Input.is_action_just_pressed("lane_left"):
 		request_lane(current_lane - 1)
+		carMoved.emit()
+	
 
 func request_lane(new_lane: int) -> void:
 	new_lane = clampi(new_lane, 0, logic.lane_count - 1)
@@ -35,7 +42,10 @@ func request_lane(new_lane: int) -> void:
 	_move_to_lane_center(current_lane, dir)
 
 func lane_center_x(lane_index: int) -> float:
-	return (-logic.street_width * 0.5) + logic.lane_width * (float(lane_index) + 0.5)
+	if logic.sceneID == 1:
+		return (-logic.street_width * 0.5) + logic.lane_width * (float(lane_index) + 0.5) + 1497.0
+	else:
+		return (-logic.street_width * 0.5) + logic.lane_width * (float(lane_index) + 0.5)
 
 func _move_to_lane_center(lane_index: int, dir: float) -> void:
 	is_switching = true
