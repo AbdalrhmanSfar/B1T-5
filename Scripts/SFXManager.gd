@@ -47,7 +47,9 @@ func play_sfx(clip: AudioStream, volume_linear: float = -1.0, pitch: float = 1.0
 
 
 
-
+func vroom_sfx() -> void:
+	var pitch := randf_range(0.9, 1.1)
+	await play_sfx(vroom_sound, 1.0, pitch)
 
 func button_sfx() -> void:
 	var pitch := randf_range(0.9, 1.1)

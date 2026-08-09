@@ -8,18 +8,18 @@ var lane_width: float
 @export var switch_dur: float = 0.12
 @export var switch_lock: bool = true
 @export var gameDifficulty: int = 0
-@export var difficultyThresholds: Array[float] = [3, 6, 10, 30, 120]
+@export var difficultyThresholds: Array[float] = [20, 40, 70, 120, 150, 200, 250, 300, 500, 1000]
 var maxDifficulty: int
-@export var globalSpeedIncrements: Array[float] = [0, 0.2, 0.8, 1.8, 3]
+@export var globalSpeedIncrements: Array[float] = [0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 2, 2.5, 3]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
-@export var lerp_speed: float = 12.0
-@export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7]
-@export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8]
+@export var lerp_speed: float = 6.0
+@export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7, 0.7, 0.7, 0.5, 0.3, 0.3]
+@export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8, 8, 8, 8, 8, 8]
 
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
-const speedScale = 150.0 # speed will be Speed field * speedScale
+const speedScale = 300.0 # speed will be (Speed+playerspeed) * speedScale
 var paused: bool = false
 var score: float = 0 # time survived
 var multiplyer: float = 1.0
@@ -53,12 +53,13 @@ func _process(_delta: float) -> void:
 	if gameDifficulty < maxDifficulty and score >= difficultyThresholds[gameDifficulty]:
 		gameDifficulty += 1
 		globalSpeedIncrementTarget = globalSpeedIncrements[gameDifficulty]
+		SFX.vroom_sfx()
 	globalSpeedIncrement = lerp(globalSpeedIncrement, globalSpeedIncrementTarget, min(1.0, _delta * lerp_speed))
 	
 	if int(timer) != int(timer - _delta): 
 		energy -= 1
 		if energy == 0:
-			energy = timeBetweenBlinks[gameDifficulty]
+			energy = int(timeBetweenBlinks[gameDifficulty])
 			FadeTransitionSceneV2.blink(blinkLengthDifficulty[gameDifficulty], blinkLengthDifficulty[gameDifficulty]/2, blinkLengthDifficulty[gameDifficulty]/2)
 	
 	if get_tree().paused:

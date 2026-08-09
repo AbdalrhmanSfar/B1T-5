@@ -2,8 +2,8 @@ extends Node2D
 
 var initial_off_time_start = 1
 var initial_off_time_end = 5
-@export var range_start: Array[float] = [5,4,3,2,1]
-@export var range_end: Array[float] = [25,15,7,7,7]
+@export var range_start: Array[float] = [3,3,3,3,2,2,2,1,1,0.75]
+@export var range_end: Array[float] = [25,15,7,7,7,5,5,3,3,3]
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Array[Timer] = [$"lane1/Timer1",$"lane2/Timer2",$"lane3/Timer3"]
 var objects: Array
@@ -24,7 +24,7 @@ func _ready() -> void:
 	for laneIndex in range(lanes.size()):
 		laneQueue.push_back([])
 		lanes[laneIndex].position.x = (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
-		timer[laneIndex].start(randi_range(initial_off_time_start,initial_off_time_end))
+		timer[laneIndex].start(randf_range(initial_off_time_start,initial_off_time_end))
 
 func updateLatestPos(i: int) -> void:
 	while laneQueue[i].size():
