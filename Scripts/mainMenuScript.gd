@@ -8,7 +8,7 @@ extends Control
 @onready var levelSelector: HBoxContainer = $levelSelector
 @onready var playButton: Button = $mainButtons/playButton
 
-var streetsSpeed = 200 # base speed before car speeding up (which is the increase in difficulty)
+var streetsSpeed = 1 # base speed before car speeding up (which is the increase in difficulty)
 @onready var streets: Control = $movingStreet/Control
 var queue: Array = []
 @onready var animPlayer: AnimationPlayer = $AnimationPlayer
@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 		mainButtons.show()
 	
 	for i in range(queue.size()):
-		queue[i].position.y += (streetsSpeed * _delta)
+		queue[i].position.y += ((streetsSpeed + logic.globalSpeedIncrement) * logic.speedScale * _delta)
 	var isOutside = not queue.back().get_viewport_rect().intersects(queue.back().get_global_rect())
 	if isOutside:
 		queue.back().position.y = queue[0].position.y - 1890
@@ -143,7 +143,7 @@ func startTutorial():
 			streetsSpeed = 0
 			await acceptDirection
 			tutorialMessages[3].hide()
-			streetsSpeed = 200
+			streetsSpeed = 1
 			continue
 		
 		await logic.obsticleDied
@@ -158,7 +158,7 @@ func startTutorial():
 			streetsSpeed = 0
 			await acceptDirection
 			tutorialMessages[3].hide()
-			streetsSpeed = 200
+			streetsSpeed = 1
 			continue
 		
 		await logic.obsticleDied
@@ -173,7 +173,7 @@ func startTutorial():
 			streetsSpeed = 0
 			await acceptDirection
 			tutorialMessages[3].hide()
-			streetsSpeed = 200
+			streetsSpeed = 1
 			continue
 		
 		break

@@ -605,12 +605,12 @@ vertical_alignment = 1
 [node name="Moving car2" parent="obstacles" unique_id=91853143 instance=ExtResource("5_kpbwx")]
 position = Vector2(1336, -139)
 script = ExtResource("8_5astm")
-metadata/Speed = 1.5
+metadata/Speed = 0.8
 
 [node name="Moving car3" parent="obstacles" unique_id=52851424 instance=ExtResource("9_1s6w1")]
 position = Vector2(1660, -194)
 script = ExtResource("8_5astm")
-metadata/Speed = 1.2
+metadata/Speed = 0.6
 
 [node name="Car" parent="obstacles" unique_id=478963846 instance=ExtResource("10_k35w8")]
 position = Vector2(1500, -464)

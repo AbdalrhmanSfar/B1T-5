@@ -126,6 +126,6 @@ texture = ExtResource("7_jl3vg")
 [node name="Music" parent="." unique_id=578597242 instance=ExtResource("10_mlj66")]
 
 [node name="Leaderboard" parent="." unique_id=707730308 instance=ExtResource("11_jl3vg")]
-leaderboardSize = 0.36
+leaderboardSize = 0.32
 
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]

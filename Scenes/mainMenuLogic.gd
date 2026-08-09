@@ -13,7 +13,7 @@ var obsticleDiedID
 signal obsticleDied
 var sceneID = 1
 
-const speedScale = 150.0 # speed will be Speed field * speedScale
+const speedScale = 225.0 # speed will be Speed field * speedScale
 @export var initialEnergy: int  = 30
 var energy: int
 var timer = 0.0
