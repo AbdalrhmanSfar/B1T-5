@@ -6,9 +6,11 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	logic = get_node($"/root/Game/Logic Manager".get_path())
 	visible = false
 	get_tree().paused = false
-	logic = get_node($"/root/Game/Logic Manager".get_path())
+	logic.paused = false
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +29,7 @@ func _process(_delta: float) -> void:
 			visible = true
 			pauseMenu.show() 
 			get_tree().paused = true
+			logic.paused = true
 			MusicPlayerSingleton.stream_paused = true 
 			
 	if Global.closedSettings:
@@ -39,6 +42,7 @@ func _on_resume_button_pressed() -> void:
 	SFX.button_sfx()
 	visible = false
 	get_tree().paused = false
+	logic.paused = false
 	MusicPlayerSingleton.stream_paused = false
 
 
@@ -53,6 +57,7 @@ func _on_quit_to_main_button_pressed() -> void:
 	SFX.button_sfx()
 	MusicPlayerSingleton.stream_paused = false
 	get_tree().paused = false
+	logic.paused = false
 	FadeTransitionSceneV2.loadScene("res://Scenes/mainMenuScene.tscn")
 
 
@@ -60,6 +65,7 @@ func _on_restart_button_pressed() -> void:
 	SFX.button_sfx()
 	MusicPlayerSingleton.stream_paused = false
 	get_tree().paused = false
+	logic.paused = false
 	FadeTransitionSceneV2.loadScene(get_tree().current_scene.scene_file_path)
 
 

@@ -17,7 +17,7 @@ func _ready() -> void:
 	rotation_degrees = 0.0
 
 func _process(_delta: float) -> void:
-	if !logic.alive:
+	if !logic.alive or logic.paused:
 		return
 	
 	if logic.switch_lock and is_switching:

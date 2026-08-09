@@ -11,7 +11,7 @@ func _ready() -> void:
 	#print("ALIVE")
 
 func _physics_process(_delta: float) -> void:
-	if logic.paused:
+	if !logic.alive or logic.paused:
 		return
 	velocity.y = (speed+logic.globalSpeedIncrement)*logic.speedScale
 	move_and_slide()
