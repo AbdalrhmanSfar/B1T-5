@@ -6,6 +6,8 @@ var crash_sound: AudioStream = preload("res://Assets/SFX/Crash.wav")
 var hover_sound: AudioStream = preload("res://Assets/SFX/Hover.wav")
 var loser_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
 var start_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
+var vroom_sound: AudioStream = preload("res://Assets/SFX/Vroom.wav")
+
 var sfx_player_scene: PackedScene = preload("res://Scenes/SFXPlayer.tscn")
 
 @export var default_volume_linear: float = 1.0 
