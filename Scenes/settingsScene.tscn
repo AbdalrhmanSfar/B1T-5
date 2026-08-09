@@ -215,4 +215,5 @@ text = "X"
 [connection signal="value_changed" from="settingsPanel/VBoxContainer/masterSlider/HSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="settingsPanel/VBoxContainer/musicSlider/HSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="settingsPanel/VBoxContainer/SFXslider/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="mouse_entered" from="settingsPanel/quitSettings" to="." method="_on_quit_settings_mouse_entered"]
 [connection signal="pressed" from="settingsPanel/quitSettings" to="." method="_on_quit_settings_pressed"]

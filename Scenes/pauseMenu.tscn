@@ -146,7 +146,11 @@ text = "QUIT TO MAIN"
 [node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("2_shfa6")]
 visible = false
 
+[connection signal="mouse_entered" from="Panel/resumeButton" to="." method="_on_resume_button_mouse_entered"]
 [connection signal="pressed" from="Panel/resumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="Panel/restartButton" to="." method="_on_restart_button_mouse_entered"]
 [connection signal="pressed" from="Panel/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="Panel/settingsButton" to="." method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="Panel/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="Panel/quitToMainButton" to="." method="_on_quit_to_main_button_mouse_entered"]
 [connection signal="pressed" from="Panel/quitToMainButton" to="." method="_on_quit_to_main_button_pressed"]

@@ -72,37 +72,39 @@ func _process(_delta: float) -> void:
 		acceptDirection.emit()
 
 func _on_play_button_pressed() -> void:
-	levelSelector.show()
 	SFX.button_sfx()
-	#FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")
+	FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")
 	#fadePanel.show()
 	#fadePanel.get_node("fadeTimer").start()
 	#fadePanel.get_node("AnimationPlayer").play("fadeIn")
 
 func _on_settings_buton_pressed() -> void:
+	SFX.button_sfx()
 	mainButtons.hide()
 	settingsPanel.show()
 
 
 func _on_leaderboard_button_pressed() -> void:
+	SFX.button_sfx()
 	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 
 func _on_credits_button_pressed() -> void:
+	SFX.button_sfx()
 	creditsPanel.show()
 	mainButtons.hide()
 
 func _on_quit_button_pressed() -> void:
+	SFX.button_sfx()
 	get_tree().quit()
 
-func _on_fade_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Sections/main_game_scene.tscn")
-
 func _on_quit_credits_pressed() -> void:
+	SFX.button_sfx()
 	creditsPanel.hide()
 	mainButtons.show()
 
 
 func _on_submit_name_button_pressed() -> void:
+	SFX.button_sfx()
 	Global.config.set_value("settings","name",nameBox.text)
 	Global.config.save(Global.settingsFilePath)
 	Global.playerName = nameBox.text
@@ -111,6 +113,7 @@ func _on_submit_name_button_pressed() -> void:
 
 
 func _on_first_play_button_pressed() -> void:
+	SFX.button_sfx()
 	levelSelector.show()
 
 func startTutorial():
@@ -189,6 +192,7 @@ func startTutorial():
 
 
 func _on_tutorial_button_pressed() -> void:
+	SFX.button_sfx()
 	mainButtons.hide()
 	levelSelector.hide()
 	startTutorial()
@@ -196,4 +200,31 @@ func _on_tutorial_button_pressed() -> void:
 
 func _on_play_button_mouse_entered() -> void:
 	SFX.hover_sfx()
-	pass # Replace with function body.
+
+
+func _on_settings_buton_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_leaderboard_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_credits_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_quit_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_tutorial_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_main_game_button_mouse_entered() -> void:
+	SFX.hover_sfx()
+
+
+func _on_quit_credits_mouse_entered() -> void:
+	SFX.hover_sfx()

@@ -93,5 +93,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iry3f")
 theme_override_styles/focus = SubResource("StyleBoxFlat_h2brs")
 text = "QUIT TO MAIN MENU"
 
+[connection signal="mouse_entered" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="Panel/VBoxContainer/quitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_mouse_entered"]
 [connection signal="pressed" from="Panel/VBoxContainer/quitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_pressed"]

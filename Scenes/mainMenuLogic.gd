@@ -38,5 +38,7 @@ func _process(_delta: float) -> void:
 			FadeTransitionSceneV2.blink(1.1, 0.5, 0.5)
 
 func emitObsticleDied(id: int):
+	if id == 0:
+		SFX.interact_sfx()
 	obsticleDiedID = id
 	obsticleDied.emit()
