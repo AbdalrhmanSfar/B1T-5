@@ -85,7 +85,7 @@ func _on_settings_buton_pressed() -> void:
 
 
 func _on_leaderboard_button_pressed() -> void:
-	SFX.button_sfx()
+	await SFX.button_sfx()
 	get_tree().change_scene_to_file("res://addons/silent_wolf/Scores/Leaderboard.tscn")
 
 func _on_credits_button_pressed() -> void:

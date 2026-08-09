@@ -93,10 +93,11 @@ func shouldSaveHighScore(playerName: String, newScore: float):
 func gameOver():
 	print("GAME OVER")
 	shouldSaveHighScore(Global.playerName, score)
-	SFX.interact_sfx()
 	print("play crash sfx")
 	gameOverMenu.show()
 	get_tree().paused = true
 	score = 0
 	alive = false
 	FadeTransitionSceneV2.abort()
+	SFX.lose_sfx()
+	await SFX.crash_sfx()

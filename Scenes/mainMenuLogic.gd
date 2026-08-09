@@ -39,6 +39,6 @@ func _process(_delta: float) -> void:
 
 func emitObsticleDied(id: int):
 	if id == 0:
-		SFX.interact_sfx()
+		SFX.crash_sfx()
 	obsticleDiedID = id
 	obsticleDied.emit()

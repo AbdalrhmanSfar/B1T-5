@@ -11,7 +11,6 @@ signal carMoved
 
 func _ready() -> void:
 	current_lane = clampi(logic.start_lane, 0, logic.lane_count - 1)
-
 	var p := position
 	p.x = lane_center_x(current_lane)
 	position = p
