@@ -18,6 +18,7 @@ const speedScale = 225.0 # speed will be Speed field * speedScale
 var energy: int
 var timer = 0.0
 var alive = false
+var paused = false
 var startBlinkTimer = false
 
 # Called when the node enters the scene tree for the first time.
