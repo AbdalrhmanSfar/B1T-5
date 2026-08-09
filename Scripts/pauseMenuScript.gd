@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var pauseMenu: Panel = $Panel
-@onready var settingsMenu: Panel = $settingsPanel
+@onready var settingsMenu: CanvasLayer = $settingsPanel
 @onready var logic
 
 # Called when the node enters the scene tree for the first time.

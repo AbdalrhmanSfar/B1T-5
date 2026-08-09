@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://b8i1uplm3iq0o"]
 
 [ext_resource type="Script" uid="uid://dbf1y0p4373mk" path="res://Scripts/gameOverMenuScript.gd" id="1_iry3f"]
+[ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="2_xsmso"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkeji"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iry3f"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsmso"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2brs"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 
 [node name="gameOverMenu" type="CanvasLayer" unique_id=1318937838]
 process_mode = 3
@@ -14,18 +35,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.627451)
+color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
 [node name="Panel" type="Panel" parent="." unique_id=559117292]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -225.0
-offset_right = 300.0
-offset_bottom = 225.0
+anchors_preset = -1
+anchor_left = 0.35
+anchor_top = 0.35
+anchor_right = 0.65
+anchor_bottom = 0.65
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tkeji")
@@ -37,24 +54,44 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="restartButton" type="Button" parent="Panel/VBoxContainer" unique_id=756017859]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Restart"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_xsmso")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xsmso")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2brs")
+text = "RESTART"
 
-[node name="quitToMainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=2004862673]
+[node name="quitToMainMenuButton" type="Button" parent="Panel/VBoxContainer" unique_id=703273887]
 custom_minimum_size = Vector2(300, 70)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Quit to Main Menu"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_xsmso")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xsmso")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_iry3f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_h2brs")
+text = "QUIT TO MAIN MENU"
 
 [connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/quitToMainMenuButton" to="." method="_on_quit_to_main_menu_button_pressed"]

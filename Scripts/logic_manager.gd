@@ -13,6 +13,8 @@ var maxDifficulty: int
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
 @export var lerp_speed: float = 12.0
+@export var blinkLengthDifficulty: Array[float] = [1, 1, 1.5, 1.5, 2]
+@export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8]
 
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
@@ -44,7 +46,7 @@ func _process(_delta: float) -> void:
 		return
 	
 	timer += _delta
-	score += (multiplyer * _delta)
+	score += (multiplyer * _delta * 10)
 	gameDifficulty = clampi(gameDifficulty,0,maxDifficulty)
 	if gameDifficulty < maxDifficulty and score >= difficultyThresholds[gameDifficulty]:
 		gameDifficulty += 1
@@ -54,8 +56,8 @@ func _process(_delta: float) -> void:
 	if int(timer) != int(timer - _delta): 
 		energy -= 1
 		if energy == 0:
-			energy = energyAfterLongBlink
-			FadeTransitionSceneV2.blink(2.0, 0.5)
+			energy = timeBetweenBlinks[gameDifficulty]
+			FadeTransitionSceneV2.blink(blinkLengthDifficulty[gameDifficulty], 0.5, 0.5)
 	
 	if get_tree().paused:
 		paused = true

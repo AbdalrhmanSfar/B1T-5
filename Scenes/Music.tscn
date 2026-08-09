@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cnrqqfrpgnfds"]
 
-[ext_resource type="Script" uid="uid://cskq256t4bts8" path="res://Scenes/music_script.gd" id="1_fghhr"]
+[ext_resource type="Script" uid="uid://cskq256t4bts8" path="res://Scripts/music_script.gd" id="1_fghhr"]
 [ext_resource type="AudioStream" uid="uid://claewq14qy5hl" path="res://Assets/Music/FinalIntro.mp3" id="2_p1bea"]
 [ext_resource type="AudioStream" uid="uid://clnem4bx2xgst" path="res://Assets/Music/FinalLoop.mp3" id="3_0chwm"]
 

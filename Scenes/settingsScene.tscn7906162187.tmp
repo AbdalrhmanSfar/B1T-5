@@ -66,6 +66,8 @@ bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm3to"]
 bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkeji"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y537g"]
 bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 border_width_left = 5
@@ -91,11 +93,19 @@ bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0g1c"]
 bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=371340147]
-layer = 100
+[node name="settingsPanel" type="Panel" unique_id=1924778424]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.1
+anchor_right = 0.7
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_ipe3l")
 script = ExtResource("1_1wtnp")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=83334498]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=371340147]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=83334498]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,37 +113,27 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
-[node name="settingsPanel" type="Panel" parent="." unique_id=1924778424]
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.2
-anchor_right = 0.7
-anchor_bottom = 0.8
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ipe3l")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="settingsPanel" unique_id=223539416]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=223539416]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 70
+theme_override_constants/separation = 40
 alignment = 1
 
-[node name="masterSlider" type="VBoxContainer" parent="settingsPanel/VBoxContainer" unique_id=2122509727]
+[node name="masterSlider" type="VBoxContainer" parent="VBoxContainer" unique_id=2122509727]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="settingsPanel/VBoxContainer/masterSlider" unique_id=1797693513]
+[node name="Label" type="Label" parent="VBoxContainer/masterSlider" unique_id=1797693513]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("2_g8qer")
 theme_override_font_sizes/font_size = 32
 text = " MASTER"
 
-[node name="HSlider" type="HSlider" parent="settingsPanel/VBoxContainer/masterSlider" unique_id=960253758]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/masterSlider" unique_id=960253758]
 custom_minimum_size = Vector2(700, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -146,17 +146,17 @@ max_value = 1.0
 step = 0.001
 value = 0.5
 
-[node name="musicSlider" type="VBoxContainer" parent="settingsPanel/VBoxContainer" unique_id=665385261]
+[node name="musicSlider" type="VBoxContainer" parent="VBoxContainer" unique_id=665385261]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="settingsPanel/VBoxContainer/musicSlider" unique_id=429690067]
+[node name="Label" type="Label" parent="VBoxContainer/musicSlider" unique_id=429690067]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("2_g8qer")
 theme_override_font_sizes/font_size = 32
 text = " MUSIC"
 
-[node name="HSlider" type="HSlider" parent="settingsPanel/VBoxContainer/musicSlider" unique_id=1734819380]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/musicSlider" unique_id=1734819380]
 custom_minimum_size = Vector2(700, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -169,17 +169,17 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="SFXslider" type="VBoxContainer" parent="settingsPanel/VBoxContainer" unique_id=1438849143]
+[node name="SFXslider" type="VBoxContainer" parent="VBoxContainer" unique_id=1438849143]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="settingsPanel/VBoxContainer/SFXslider" unique_id=1029448207]
+[node name="Label" type="Label" parent="VBoxContainer/SFXslider" unique_id=1029448207]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 theme_override_fonts/font = ExtResource("2_g8qer")
 theme_override_font_sizes/font_size = 32
 text = " SFX "
 
-[node name="HSlider" type="HSlider" parent="settingsPanel/VBoxContainer/SFXslider" unique_id=876224695]
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SFXslider" unique_id=876224695]
 custom_minimum_size = Vector2(700, 20)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -192,12 +192,41 @@ max_value = 1.0
 step = 0.001
 value = 1.0
 
-[node name="quitSettings" type="Button" parent="settingsPanel" unique_id=1952342970]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1425479791]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=772575027]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_g8qer")
+theme_override_font_sizes/font_size = 24
+text = "FULLSCREEN
+"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer" unique_id=960767864]
+custom_minimum_size = Vector2(30, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("2_g8qer")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkeji")
+theme_override_colors/button_checked_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/button_unchecked_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[node name="quitSettings" type="Button" parent="." unique_id=1952342970]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.91
 anchor_right = 1.0
-anchor_bottom = 0.1
+anchor_bottom = 0.07
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
@@ -212,7 +241,8 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_fdcym")
 theme_override_styles/focus = SubResource("StyleBoxFlat_m0g1c")
 text = "X"
 
-[connection signal="value_changed" from="settingsPanel/VBoxContainer/masterSlider/HSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="settingsPanel/VBoxContainer/musicSlider/HSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="settingsPanel/VBoxContainer/SFXslider/HSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="pressed" from="settingsPanel/quitSettings" to="." method="_on_quit_settings_pressed"]
+[connection signal="value_changed" from="VBoxContainer/masterSlider/HSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/musicSlider/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFXslider/HSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="pressed" from="quitSettings" to="." method="_on_quit_settings_pressed"]

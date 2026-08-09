@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://dqy7hjwexb1nd"]
 
 [ext_resource type="Script" uid="uid://drfvq15hvfpom" path="res://Scripts/mainMenuScript.gd" id="1_2scmx"]
-[ext_resource type="PackedScene" uid="uid://df5v37gjwap4e" path="res://Scenes/fadeTransitionScene.tscn" id="2_dmpjx"]
+[ext_resource type="Texture2D" uid="uid://bfrkbvx2r1mp2" path="res://Sprites/street tileset ye.png" id="2_gqcci"]
 [ext_resource type="PackedScene" uid="uid://b0cymrj8ay57s" path="res://Scenes/settingsScene.tscn" id="3_gqcci"]
+[ext_resource type="Texture2D" uid="uid://di8x80a8b12nu" path="res://Sprites/car2.png" id="3_hst3r"]
+[ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="5_ipe3l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ipe3l"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihg27"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpbwx"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5astm"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm3to"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 
 [node name="mainMenuScene" type="Control" unique_id=1060095118]
 layout_mode = 3
@@ -12,10 +29,77 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2scmx")
+streetsSpeed = 200.0
 
-[node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("3_gqcci")]
-visible = false
+[node name="movingStreet" type="CanvasLayer" parent="." unique_id=955241191]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="movingStreet" unique_id=1954112274]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[node name="Control" type="Control" parent="movingStreet" unique_id=375027209]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 541.0
+offset_right = 581.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="movingStreet/Control" unique_id=71183952]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 591.5
+offset_top = -1433.0
+offset_right = 1291.5
+offset_bottom = 457.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gqcci")
+
+[node name="TextureRect2" type="TextureRect" parent="movingStreet/Control" unique_id=205822078]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 591.5
+offset_top = 457.0
+offset_right = 1291.5
+offset_bottom = 2347.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gqcci")
+
+[node name="TextureRect3" type="TextureRect" parent="movingStreet/Control" unique_id=2120910739]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 591.5
+offset_top = 2347.0
+offset_right = 1291.5
+offset_bottom = 4237.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_gqcci")
+
+[node name="TextureRect" type="TextureRect" parent="movingStreet" unique_id=357882032]
+offset_left = 1453.0
+offset_top = 539.0
+offset_right = 1543.0
+offset_bottom = 699.0
+texture = ExtResource("3_hst3r")
 
 [node name="creditsPanel" type="Panel" parent="." unique_id=1107286848]
 visible = false
@@ -43,59 +127,101 @@ text = "X"
 [node name="mainButtons" type="VBoxContainer" parent="." unique_id=914527426]
 propagate_maximum_size = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.25
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="playButton" type="Button" parent="mainButtons" unique_id=590671974]
 custom_minimum_size = Vector2(325, 85)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Play"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ipe3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihg27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpbwx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5astm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sm3to")
+text = "PLAY"
 
-[node name="settingsButon" type="Button" parent="mainButtons" unique_id=300768377]
+[node name="settingsButon" type="Button" parent="mainButtons" unique_id=1839539903]
 custom_minimum_size = Vector2(325, 85)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Settings"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ipe3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihg27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpbwx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5astm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sm3to")
+text = "SETTINGS"
 
-[node name="leaderboardButton" type="Button" parent="mainButtons" unique_id=289884480]
+[node name="leaderboardButton" type="Button" parent="mainButtons" unique_id=1320725609]
 custom_minimum_size = Vector2(325, 85)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Leaderboard"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ipe3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihg27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpbwx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5astm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sm3to")
+text = "LEADERBOARD"
 
-[node name="creditsButton" type="Button" parent="mainButtons" unique_id=523571753]
+[node name="creditsButton" type="Button" parent="mainButtons" unique_id=390383098]
 custom_minimum_size = Vector2(325, 85)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Credits"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ipe3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihg27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpbwx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5astm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sm3to")
+text = "CREDITS"
 
-[node name="quitButton" type="Button" parent="mainButtons" unique_id=1643641523]
+[node name="quitButton" type="Button" parent="mainButtons" unique_id=584532252]
 custom_minimum_size = Vector2(325, 85)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Quit"
-
-[node name="fadeTransition" parent="." unique_id=1826309271 instance=ExtResource("2_dmpjx")]
-visible = false
-layout_mode = 1
-
-[node name="fadeTimer" type="Timer" parent="fadeTransition" unique_id=2027618990]
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ipe3l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ihg27")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kpbwx")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5astm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sm3to")
+text = "QUIT"
 
 [node name="enterNameContainer" type="Control" parent="." unique_id=2011263210]
 visible = false
@@ -130,11 +256,13 @@ offset_right = -0.00012207031
 theme_override_font_sizes/font_size = 46
 text = "Submit"
 
+[node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("3_gqcci")]
+visible = false
+
 [connection signal="pressed" from="creditsPanel/quitCredits" to="." method="_on_quit_credits_pressed"]
 [connection signal="pressed" from="mainButtons/playButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="mainButtons/settingsButon" to="." method="_on_settings_buton_pressed"]
 [connection signal="pressed" from="mainButtons/leaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="pressed" from="mainButtons/creditsButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="mainButtons/quitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="timeout" from="fadeTransition/fadeTimer" to="." method="_on_fade_timer_timeout"]
 [connection signal="pressed" from="enterNameContainer/submitNameButton" to="." method="_on_submit_name_button_pressed"]

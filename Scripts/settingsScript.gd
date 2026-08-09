@@ -1,13 +1,12 @@
-extends Panel
+extends CanvasLayer
 
-@onready var settingsPanel: Panel = $"."
 var masterBusID;
 var musicBusID;
 var SFXbusID;
-@onready var masterSlider: HSlider = $VBoxContainer/masterSlider/HSlider
-@onready var musicSlider: HSlider = $VBoxContainer/musicSlider/HSlider
-@onready var SFXslider: HSlider = $VBoxContainer/SFXslider/HSlider
-@onready var checkButton: CheckButton = $VBoxContainer/CheckButton
+@onready var masterSlider: HSlider = $settingsPanel/VBoxContainer/masterSlider/HSlider
+@onready var musicSlider: HSlider = $settingsPanel/VBoxContainer/musicSlider/HSlider
+@onready var SFXslider: HSlider = $settingsPanel/VBoxContainer/SFXslider/HSlider
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -16,7 +15,6 @@ func _ready() -> void:
 	musicBusID = AudioServer.get_bus_index("Music")
 	SFXbusID = AudioServer.get_bus_index("SFX")
 	
-	checkButton.button_pressed = Global.config.get_value("settings", "fullscreen")
 	masterSlider.value = Global.config.get_value("settings", "master")
 	musicSlider.value = Global.config.get_value("settings", "music")
 	SFXslider.value = Global.config.get_value("settings", "sfx")
@@ -29,7 +27,8 @@ func _process(_delta: float) -> void:
 
 func _on_quit_settings_pressed() -> void:
 	Global.closedSettings = true
-	settingsPanel.hide()
+	print("hide settings")
+	hide()
 
 
 func _on_master_slider_value_changed(value: float) -> void:

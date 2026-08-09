@@ -2,10 +2,13 @@ extends Control
 
 @onready var creditsPanel: Panel = $creditsPanel
 @onready var mainButtons: VBoxContainer = $mainButtons
-@onready var settingsPanel: Panel = $settingsPanel
+@onready var settingsPanel: CanvasLayer = $settingsPanel
 @onready var enterNameContainer: Control = $enterNameContainer
 @onready var nameBox: LineEdit = $enterNameContainer/LineEdit
 
+@export var streetsSpeed = 1.0 # base speed before car speeding up (which is the increase in difficulty)
+@onready var streets: Control = $movingStreet/Control
+var queue: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +17,9 @@ func _ready() -> void:
 	# THIS ACTION IS IRREVERSIBLE
 	#SilentWolf.Scores.wipe_leaderboard() 
 	
+	for child in streets.get_children():
+		queue.push_back(child)
+	
 	mainButtons.show()
 	settingsPanel.hide()
 	creditsPanel.hide()
@@ -21,8 +27,6 @@ func _ready() -> void:
 	if Global.config.get_value("settings", "name") == "a":
 		mainButtons.hide()
 		enterNameContainer.show()
-	
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +41,14 @@ func _process(_delta: float) -> void:
 	if Global.closedSettings:
 		Global.closedSettings = false
 		mainButtons.show()
+	
+	for i in range(queue.size()):
+		queue[i].position.y += (streetsSpeed * _delta)
+	var isOutside = not queue.back().get_viewport_rect().intersects(queue.back().get_global_rect())
+	if isOutside:
+		queue.back().position.y = queue[0].position.y - 1890
+		queue.push_front(queue.pop_back())
+		print("moved road")
 
 func _on_play_button_pressed() -> void:
 	FadeTransitionSceneV2.loadScene("res://Scenes/main_game_scene.tscn")

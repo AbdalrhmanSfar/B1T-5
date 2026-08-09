@@ -1,25 +1,29 @@
 [gd_scene format=3 uid="uid://2wy4d8d5av0l"]
 
-[node name="ScoreItem" type="Panel"]
-custom_minimum_size = Vector2(500, 50)
-grow_horizontal = 0
-grow_vertical = 0
+[ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="1_jqdn1"]
 
-[node name="PlayerName" type="RichTextLabel" parent="."]
-custom_minimum_size = Vector2(100, 25)
-layout_mode = 0
-offset_left = 8.0
-offset_right = 359.0
+[node name="ScoreItem" type="HBoxContainer" unique_id=413691619]
+custom_minimum_size = Vector2(700, 50)
+offset_left = 3.0
+offset_right = 603.0
 offset_bottom = 50.0
-theme_override_font_sizes/normal_font_size = 32
+alignment = 2
+
+[node name="PlayerName" type="Label" parent="." unique_id=2115417322]
+custom_minimum_size = Vector2(600, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("1_jqdn1")
+theme_override_font_sizes/font_size = 32
 text = "1. Godzilla"
 
-[node name="Score" type="Label" parent="."]
-layout_mode = 0
-offset_left = 359.0
-offset_top = 1.0
-offset_right = 485.0
-offset_bottom = 49.0
+[node name="Score" type="Label" parent="." unique_id=247964589]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("1_jqdn1")
 theme_override_font_sizes/font_size = 32
-text = "13"
+text = "133"
 horizontal_alignment = 2

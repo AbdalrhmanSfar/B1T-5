@@ -6,6 +6,7 @@ var sceneToLoad
 @onready var sceneTransitionTimer2: Timer = $fadeTransition/sceneTransitionTimer2
 @onready var blinkTimer: Timer = $fadeTransition/blinkTimer1
 @onready var blinkTimer2: Timer = $fadeTransition/blinkTimer2
+var fadeOutTime
 
 
 # Called when the node enters the scene tree for the first time.
@@ -39,12 +40,13 @@ func _on_timer_2_timeout() -> void:
 	print("fade scene hide")
 	hide()
 
-func blink(blinkDuration: float, fadeDuration: float): 
+func blink(blinkDuration: float, fadeInDuration: float, fadeOutDuration: float): 
 	show()
 	print("fade scene show")
-	animPlayer.speed_scale = 1.0 / fadeDuration
-	blinkTimer.wait_time = fadeDuration
-	blinkTimer2.wait_time = blinkDuration - 2 * fadeDuration
+	animPlayer.speed_scale = 1.0 / fadeInDuration
+	blinkTimer.wait_time = fadeInDuration
+	blinkTimer2.wait_time = blinkDuration - fadeInDuration - fadeOutDuration
+	fadeOutTime = fadeInDuration
 	blinkTimer.start()
 	animPlayer.play("fadeIn")
 
@@ -57,6 +59,7 @@ func _on_blink_timer_1_timeout() -> void:
 func _on_blink_timer_2_timeout() -> void:
 	print("fade scene hide")
 	print("play fadeOut")
+	animPlayer.speed_scale = 1.0 / fadeOutTime
 	animPlayer.play("fadeOut")
 	await animPlayer.animation_finished
 	hide()

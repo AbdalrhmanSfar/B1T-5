@@ -1,9 +1,36 @@
 [gd_scene format=3 uid="uid://7eh0ubcdbynu"]
 
 [ext_resource type="Script" uid="uid://dabn7k5n8eoj3" path="res://Scripts/pauseMenuScript.gd" id="1_lav5v"]
+[ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="2_efbdn"]
 [ext_resource type="PackedScene" uid="uid://b0cymrj8ay57s" path="res://Scenes/settingsScene.tscn" id="2_shfa6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tkeji"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8qer"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lav5v"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shfa6"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c5wfb"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bog3y"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1gc43"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 
 [node name="pauseMenu" type="CanvasLayer" unique_id=1959096775]
 process_mode = 3
@@ -15,63 +42,111 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.50980395)
+color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
 [node name="Panel" type="Panel" parent="." unique_id=2066418964]
 anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.1
-anchor_right = 0.7
-anchor_bottom = 0.9
-theme_override_styles/panel = SubResource("StyleBoxFlat_tkeji")
+anchor_left = 0.35
+anchor_top = 0.2
+anchor_right = 0.65
+anchor_bottom = 0.8
+theme_override_styles/panel = SubResource("StyleBoxFlat_g8qer")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=480442956]
+[node name="resumeButton" type="Button" parent="Panel" unique_id=1414270464]
+custom_minimum_size = Vector2(325, 85)
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_efbdn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lav5v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shfa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bog3y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1gc43")
+text = "RESUME"
+
+[node name="restartButton" type="Button" parent="Panel" unique_id=1349909566]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.5
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_efbdn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lav5v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shfa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bog3y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1gc43")
+text = "RESTART"
+
+[node name="settingsButton" type="Button" parent="Panel" unique_id=1276227353]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_efbdn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lav5v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shfa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bog3y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1gc43")
+text = "SETTINGS"
+
+[node name="quitToMainButton" type="Button" parent="Panel" unique_id=1710698812]
+custom_minimum_size = Vector2(325, 85)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.75
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 23
-alignment = 1
-
-[node name="resumeButton" type="Button" parent="Panel/VBoxContainer" unique_id=1414270464]
-custom_minimum_size = Vector2(325, 85)
-layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Resume
-"
-
-[node name="restartButton" type="Button" parent="Panel/VBoxContainer" unique_id=195981031]
-custom_minimum_size = Vector2(325, 85)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Restart"
-
-[node name="settingsButton" type="Button" parent="Panel/VBoxContainer" unique_id=1067867023]
-custom_minimum_size = Vector2(325, 85)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Settings"
-
-[node name="quitToMainButton" type="Button" parent="Panel/VBoxContainer" unique_id=1722095067]
-custom_minimum_size = Vector2(325, 85)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Quit to Main Menu"
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_focus_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_pressed_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("2_efbdn")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lav5v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_shfa6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c5wfb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bog3y")
+theme_override_styles/focus = SubResource("StyleBoxFlat_1gc43")
+text = "QUIT TO MAIN"
 
 [node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("2_shfa6")]
 visible = false
 
-[connection signal="pressed" from="Panel/VBoxContainer/resumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/restartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/settingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/quitToMainButton" to="." method="_on_quit_to_main_button_pressed"]
+[connection signal="pressed" from="Panel/resumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Panel/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/quitToMainButton" to="." method="_on_quit_to_main_button_pressed"]

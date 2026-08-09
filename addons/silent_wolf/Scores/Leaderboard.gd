@@ -8,9 +8,16 @@ var list_index = 0
 # Replace the leaderboard name if you're not using the default leaderboard
 var ld_name = "main"
 var max_scores = 10
-
+@export var leaderboardSize = 1.0
+@onready var control: Control = $CanvasLayer/Control
+@onready var closeLeaderboardButton: CenterContainer = $CanvasLayer/Control/Board/CloseButtonContainer
+var namesSet: Array = []
 
 func _ready():
+	control.anchor_right = leaderboardSize
+	if leaderboardSize < 1:
+		closeLeaderboardButton.hide()
+	
 	print("SilentWolf.Scores.leaderboards: " + str(SilentWolf.Scores.leaderboards))
 	print("SilentWolf.Scores.ldboard_config: " + str(SilentWolf.Scores.ldboard_config))
 	var scores = SilentWolf.Scores.scores
@@ -31,6 +38,7 @@ func _ready():
 
 
 func render_board(scores: Array, local_scores: Array) -> void:
+	namesSet.clear()
 	var all_scores = scores
 	if ld_name in SilentWolf.Scores.ldboard_config and is_default_leaderboard(SilentWolf.Scores.ldboard_config[ld_name]):
 		all_scores = merge_scores_with_local_scores(scores, local_scores, max_scores)
@@ -85,34 +93,40 @@ func score_in_score_array(scores: Array, new_score: Dictionary) -> bool:
 
 
 func add_item(player_name: String, score_value: String) -> void:
+	for name in namesSet:
+		if name == player_name:
+			return
+	namesSet.push_back(player_name)
+	
 	var item = ScoreItem.instantiate()
 	list_index += 1
 	item.get_node("PlayerName").text = str(list_index) + str(". ") + player_name
+	item.get_node("PlayerName").text = item.get_node("PlayerName").text.to_upper() ###
 	item.get_node("Score").text = score_value
 	item.offset_top = list_index * 100
-	$"CanvasLayer/Board/HighScores/ScoreItemContainer".add_child(item)
+	$"CanvasLayer/Control/Board/HighScores/ScoreItemContainer".add_child(item)
 
 
 func add_no_scores_message() -> void:
-	var item = $"CanvasLayer/Board/MessageContainer/TextMessage"
+	var item = $"CanvasLayer/Control/Board/MessageContainer/TextMessage"
 	item.text = "No scores yet!"
-	$"CanvasLayer/Board/MessageContainer".show()
+	$"CanvasLayer/Control/Board/MessageContainer".show()
 	item.offset_top = 135
 
 
 func add_loading_scores_message() -> void:
-	var item = $"CanvasLayer/Board/MessageContainer/TextMessage"
+	var item = $"CanvasLayer/Control/Board/MessageContainer/TextMessage"
 	item.text = "Loading scores..."
-	$"CanvasLayer/Board/MessageContainer".show()
+	$"CanvasLayer/Control/Board/MessageContainer".show()
 	item.offset_top = 135
 
 
 func hide_message() -> void:
-	$"CanvasLayer/Board/MessageContainer".hide()
+	$"CanvasLayer/Control/Board/MessageContainer".hide()
 
 
 func clear_leaderboard() -> void:
-	var score_item_container = $"CanvasLayer/Board/HighScores/ScoreItemContainer"
+	var score_item_container = $"CanvasLayer/Control/Board/HighScores/ScoreItemContainer"
 	if score_item_container.get_child_count() > 0:
 		var children = score_item_container.get_children()
 		for c in children:
