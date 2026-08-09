@@ -45,8 +45,8 @@ func blink(blinkDuration: float, fadeInDuration: float, fadeOutDuration: float):
 	print("fade scene show")
 	animPlayer.speed_scale = 1.0 / fadeInDuration
 	blinkTimer.wait_time = fadeInDuration
-	blinkTimer2.wait_time = blinkDuration - fadeInDuration - fadeOutDuration
-	fadeOutTime = fadeInDuration
+	blinkTimer2.wait_time = blinkDuration
+	fadeOutTime = fadeOutDuration
 	blinkTimer.start()
 	animPlayer.play("fadeIn")
 
