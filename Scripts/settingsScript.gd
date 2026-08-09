@@ -26,6 +26,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_quit_settings_pressed() -> void:
+	SFX.button_sfx()
 	Global.closedSettings = true
 	print("hide settings")
 	hide()
@@ -56,5 +57,7 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	Global.config.set_value("settings", "fullscreen", toggled_on)
 	Global.config.save(Global.settingsFilePath)
-	
-	
+
+
+func _on_quit_settings_mouse_entered() -> void:
+	SFX.hover_sfx()

@@ -104,4 +104,5 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_4da66")
 theme_override_styles/focus = SubResource("StyleBoxFlat_w76up")
 text = "CLOSE LEADERBOARD"
 
+[connection signal="mouse_entered" from="CanvasLayer/Control/Board/CloseButtonContainer/CloseButton" to="." method="_on_close_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Control/Board/CloseButtonContainer/CloseButton" to="." method="_on_CloseButton_pressed"]
