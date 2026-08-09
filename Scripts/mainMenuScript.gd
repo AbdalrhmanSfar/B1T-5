@@ -142,7 +142,7 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
-			tutorialMessages[3].hide()
+			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
 		
@@ -157,7 +157,7 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
-			tutorialMessages[3].hide()
+			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
 		
@@ -172,7 +172,7 @@ func startTutorial():
 				i += 1
 			streetsSpeed = 0
 			await acceptDirection
-			tutorialMessages[3].hide()
+			tutorialMessages[4].hide()
 			streetsSpeed = 1
 			continue
 		
