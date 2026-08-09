@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dsbvuyb2ja6wa" path="res://Scenes/decoration3.tscn" id="15_wgi8v"]
 [ext_resource type="PackedScene" uid="uid://pvapgfbhf4y4" path="res://Scenes/decoration4.tscn" id="16_1achy"]
 [ext_resource type="PackedScene" uid="uid://pv8uqf8fc0ik" path="res://Scenes/decoration2.tscn" id="17_vlxgi"]
+[ext_resource type="Texture2D" uid="uid://coocbyh20qki6" path="res://Sprites/driving_wheel.png" id="18_wgi8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
@@ -33,12 +34,14 @@ script = ExtResource("1_udhrh")
 unique_name_in_owner = true
 process_mode = 3
 script = ExtResource("3_t25fw")
-switch_dur = 0.1
+switch_dur = 0.08
 
-[node name="Player" parent="." unique_id=668532660 instance=ExtResource("5_t40n3")]
+[node name="Player" parent="." unique_id=668532660 node_paths=PackedStringArray("steering_wheel") instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
 position = Vector2(0, 278.56)
 lean_degrees = 15.0
+rotate_time = 0.3
+steering_wheel = NodePath("../Steering")
 
 [node name="Obstacle Spawner" parent="." unique_id=1301030244 instance=ExtResource("4_y8s6f")]
 position = Vector2(0, -810)
@@ -179,5 +182,12 @@ position = Vector2(0, 950)
 
 [node name="Bench" parent="Decoration Spawner2" unique_id=501204220 instance=ExtResource("17_vlxgi")]
 position = Vector2(0, 1220)
+
+[node name="Steering" type="Node2D" parent="." unique_id=726531127]
+position = Vector2(674, 283)
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Steering" unique_id=819825631]
+texture = ExtResource("18_wgi8v")
 
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]

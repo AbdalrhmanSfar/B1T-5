@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
 @onready var logic: Node = %"Logic Manager"
+
 var current_lane: int
 var is_switching := false
 var _tween: Tween
 
 @export var lean_degrees := 6.0
 @export var rotate_time := 0.35
+@export var steering_wheel: Node2D
 signal carMoved
 
 func _ready() -> void:
@@ -68,6 +70,13 @@ func _move_to_lane_center(lane_index: int, dir: float) -> void:
 		rot_time
 	)
 
+	if is_instance_valid(steering_wheel):
+		_tween.tween_property(
+			steering_wheel, "rotation_degrees",
+			dir * lean_degrees * 3,
+			rot_time * 3
+		)
+
 	_tween.tween_property(self, "position", target_pos, logic.switch_dur)
 
 	_tween.tween_property(
@@ -76,7 +85,16 @@ func _move_to_lane_center(lane_index: int, dir: float) -> void:
 		rot_time
 	)
 
+	if is_instance_valid(steering_wheel):
+		_tween.tween_property(
+			steering_wheel, "rotation_degrees",
+			0.0,
+			rot_time * 2
+		)
+
 	_tween.finished.connect(func() -> void:
 		is_switching = false
 		rotation_degrees = 0.0
+		if is_instance_valid(steering_wheel):
+			steering_wheel.rotation_degrees = 0.0
 	)
