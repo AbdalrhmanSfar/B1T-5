@@ -7,11 +7,15 @@
 [ext_resource type="FontFile" uid="uid://dby5ni7ho6rve" path="res://Assets/Fonts/Public_Pixel_Font_1_24/PublicPixel.otf" id="6_g2nae"]
 [ext_resource type="PackedScene" uid="uid://7eh0ubcdbynu" path="res://Scenes/pauseMenu.tscn" id="6_jl3vg"]
 [ext_resource type="Script" uid="uid://opkreomjtcmp" path="res://Scripts/despawn_area.gd" id="6_udhrh"]
-[ext_resource type="PackedScene" uid="uid://jxk1w8ukemlj" path="res://Scenes/energyDrink.tscn" id="7_hkk18"]
 [ext_resource type="Texture2D" uid="uid://bfrkbvx2r1mp2" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
 [ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
 [ext_resource type="PackedScene" uid="uid://cnrqqfrpgnfds" path="res://Scenes/Music.tscn" id="10_mlj66"]
 [ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="11_jl3vg"]
+[ext_resource type="PackedScene" uid="uid://bai8xg51l3qkr" path="res://Scenes/decoration_spawner.tscn" id="13_2f4cu"]
+[ext_resource type="PackedScene" uid="uid://cqhc1owd2kq8p" path="res://Scenes/decoration1.tscn" id="14_03yvr"]
+[ext_resource type="PackedScene" uid="uid://dsbvuyb2ja6wa" path="res://Scenes/decoration3.tscn" id="15_wgi8v"]
+[ext_resource type="PackedScene" uid="uid://pvapgfbhf4y4" path="res://Scenes/decoration4.tscn" id="16_1achy"]
+[ext_resource type="PackedScene" uid="uid://pv8uqf8fc0ik" path="res://Scenes/decoration2.tscn" id="17_vlxgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
@@ -72,9 +76,6 @@ vertical_alignment = 1
 layer = 2
 visible = false
 
-[node name="energyDrink" parent="." unique_id=184660362 instance=ExtResource("7_hkk18")]
-position = Vector2(0, -133)
-
 [node name="gameOverMenu" parent="." unique_id=1318937838 instance=ExtResource("8_t25fw")]
 visible = false
 
@@ -127,5 +128,47 @@ texture = ExtResource("7_jl3vg")
 
 [node name="Leaderboard" parent="." unique_id=707730308 instance=ExtResource("11_jl3vg")]
 leaderboardSize = 0.32
+
+[node name="Decoration Spawner" parent="." unique_id=1561858296 instance=ExtResource("13_2f4cu")]
+position = Vector2(0, -810)
+
+[node name="Tree2" parent="Decoration Spawner" unique_id=1239225098 instance=ExtResource("15_wgi8v")]
+position = Vector2(0, 250)
+rotation = -3.1415925
+
+[node name="Fire hydrant" parent="Decoration Spawner" unique_id=91853143 instance=ExtResource("14_03yvr")]
+position = Vector2(0, 510)
+rotation = 3.1415927
+
+[node name="Tree" parent="Decoration Spawner" unique_id=1143847444 instance=ExtResource("15_wgi8v")]
+position = Vector2(0, 750)
+rotation = 3.1415927
+
+[node name="Bushes" parent="Decoration Spawner" unique_id=1289332010 instance=ExtResource("16_1achy")]
+position = Vector2(0, 950)
+rotation = 3.1415927
+
+[node name="Bench" parent="Decoration Spawner" unique_id=479030754 instance=ExtResource("17_vlxgi")]
+position = Vector2(0, 1170)
+rotation = 3.1415927
+
+[node name="Decoration Spawner2" parent="." unique_id=916156143 instance=ExtResource("13_2f4cu")]
+position = Vector2(0, -810)
+metadata/index = 1
+
+[node name="Tree2" parent="Decoration Spawner2" unique_id=366231720 instance=ExtResource("15_wgi8v")]
+position = Vector2(0, 270)
+
+[node name="Fire hydrant" parent="Decoration Spawner2" unique_id=1063331011 instance=ExtResource("14_03yvr")]
+position = Vector2(0, 490)
+
+[node name="Tree" parent="Decoration Spawner2" unique_id=270169634 instance=ExtResource("15_wgi8v")]
+position = Vector2(0, 650)
+
+[node name="Bushes" parent="Decoration Spawner2" unique_id=447739865 instance=ExtResource("16_1achy")]
+position = Vector2(0, 950)
+
+[node name="Bench" parent="Decoration Spawner2" unique_id=501204220 instance=ExtResource("17_vlxgi")]
+position = Vector2(0, 1220)
 
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]

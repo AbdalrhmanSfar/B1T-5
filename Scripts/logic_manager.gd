@@ -2,6 +2,7 @@ extends Node
 
 @export var lane_count: int = 3
 @export var street_width: float = 470
+@export var pavementWidth: float = 610
 var lane_width: float
 @export var start_lane: int = 1
 @export var switch_dur: float = 0.12

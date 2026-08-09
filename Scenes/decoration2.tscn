@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://pv8uqf8fc0ik"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_2ups7"]
+[ext_resource type="Texture2D" uid="uid://bcej0t0c73hck" path="res://Sprites/bench.png" id="2_2ups7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03qan"]
+atlas = ExtResource("2_2ups7")
+region = Rect2(0, 0, 41, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03qan")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+size = Vector2(22, 47)
+
+[node name="Bench" type="CharacterBody2D" unique_id=91853143]
+collision_layer = 12
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_2ups7")
+metadata/Speed = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
+shape = SubResource("RectangleShape2D_g43dh")
