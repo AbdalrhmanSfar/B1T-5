@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://7eh0ubcdbynu" path="res://Scenes/pauseMenu.tscn" id="6_jl3vg"]
 [ext_resource type="Script" uid="uid://opkreomjtcmp" path="res://Scripts/despawn_area.gd" id="6_udhrh"]
 [ext_resource type="Texture2D" uid="uid://bfrkbvx2r1mp2" path="res://Sprites/street tileset ye.png" id="7_jl3vg"]
+[ext_resource type="Texture2D" uid="uid://c5sxqbuwqbffh" path="res://Sprites/score porpol.png" id="8_03yvr"]
 [ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
 [ext_resource type="PackedScene" uid="uid://cnrqqfrpgnfds" path="res://Scenes/Music.tscn" id="10_mlj66"]
 [ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="11_jl3vg"]
@@ -50,31 +51,42 @@ script = ExtResource("6_udhrh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn area" unique_id=752998570]
 shape = SubResource("RectangleShape2D_bk2vb")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=484161486]
-
-[node name="ScoreContainer" type="Control" parent="UI" unique_id=1624944557]
-layout_mode = 3
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 364.0
-grow_vertical = 2
-
-[node name="ScoreUI" type="Label" parent="UI" unique_id=1171902835]
-unique_name_in_owner = true
-anchors_preset = -1
-anchor_right = 0.36
-anchor_bottom = 0.15
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("6_g2nae")
-theme_override_font_sizes/font_size = 48
-text = " Score:"
-vertical_alignment = 1
+[node name="Leaderboard" parent="." unique_id=707730308 instance=ExtResource("11_jl3vg")]
+position = Vector2(5, 17)
+leaderboardSize = 0.32
 
 [node name="pauseMenu" parent="." unique_id=1959096775 instance=ExtResource("6_jl3vg")]
 layer = 2
 visible = false
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=484161486]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=691553248]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = 97.0
+offset_right = -1469.0
+offset_bottom = -666.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer" unique_id=1021934450]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_03yvr")
+stretch_mode = 4
+
+[node name="ScoreUI" type="Label" parent="UI/VBoxContainer" unique_id=1339992892]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("6_g2nae")
+theme_override_font_sizes/font_size = 48
+text = "0"
+horizontal_alignment = 1
 
 [node name="gameOverMenu" parent="." unique_id=1318937838 instance=ExtResource("8_t25fw")]
 visible = false
@@ -125,9 +137,6 @@ grow_vertical = 2
 texture = ExtResource("7_jl3vg")
 
 [node name="Music" parent="." unique_id=578597242 instance=ExtResource("10_mlj66")]
-
-[node name="Leaderboard" parent="." unique_id=707730308 instance=ExtResource("11_jl3vg")]
-leaderboardSize = 0.32
 
 [node name="Decoration Spawner" parent="." unique_id=1561858296 instance=ExtResource("13_2f4cu")]
 position = Vector2(0, -810)
