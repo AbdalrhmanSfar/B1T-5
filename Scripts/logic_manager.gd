@@ -27,6 +27,7 @@ var multiplyer: float = 1.0
 var energy: int
 var timer = 0.0
 var alive = true
+var sceneID = 2
 
 @onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"
 

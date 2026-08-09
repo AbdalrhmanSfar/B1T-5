@@ -190,6 +190,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2scmx")
+streetsSpeed = 200.0
 
 [node name="Logic Manager" type="Node" parent="." unique_id=790335670]
 unique_name_in_owner = true
@@ -470,34 +471,9 @@ visible = false
 libraries/ = SubResource("AnimationLibrary_ihg27")
 
 [node name="tutorialInstructions" type="Control" parent="." unique_id=1034000584]
-visible = false
 layout_mode = 1
 anchor_right = 0.55
 anchor_bottom = 1.0
-
-[node name="Label5" type="Label" parent="tutorialInstructions" unique_id=1099613731]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("5_ipe3l")
-theme_override_font_sizes/font_size = 48
-text = "It's too late for 
-driving You're about 
-to fall asleep on the
-wheel Can you make
- it home safely?
-
-
-
-Press Enter to 
-proceed"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Label" type="Label" parent="tutorialInstructions" unique_id=1046045121]
 visible = false
@@ -549,7 +525,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="tutorialInstructions" unique_id=2127182850]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -568,49 +543,15 @@ again"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label6" type="Label" parent="tutorialInstructions" unique_id=1641397942]
-visible = false
-layout_mode = 0
-offset_top = 406.0
-offset_right = 1056.0
-offset_bottom = 556.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("5_ipe3l")
-theme_override_font_sizes/font_size = 48
-text = "Exhaustion wins
-Your eyes betray you
-You blink"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label7" type="Label" parent="tutorialInstructions" unique_id=2069085894]
-visible = false
-layout_mode = 0
-offset_top = 626.0
-offset_right = 1056.0
-offset_bottom = 674.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("5_ipe3l")
-theme_override_font_sizes/font_size = 48
-text = "Press Enter to play"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="obstacles" type="Node2D" parent="." unique_id=1821821866]
 
 [node name="Moving car2" parent="obstacles" unique_id=91853143 instance=ExtResource("5_kpbwx")]
 position = Vector2(1336, -139)
 script = ExtResource("8_5astm")
-metadata/Speed = 1.5
 
 [node name="Moving car3" parent="obstacles" unique_id=52851424 instance=ExtResource("9_1s6w1")]
 position = Vector2(1660, -194)
 script = ExtResource("8_5astm")
-metadata/Speed = 1.2
 
 [node name="Car" parent="obstacles" unique_id=478963846 instance=ExtResource("10_k35w8")]
 position = Vector2(1500, -464)
