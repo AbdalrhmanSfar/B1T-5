@@ -9,6 +9,7 @@
 [node name="Obstacle Spawner" type="Node2D" unique_id=1301030244]
 script = ExtResource("1_c8vt3")
 metadata/Objects = [ExtResource("5_6c26o"), ExtResource("2_a2tm6"), ExtResource("3_yc3e8"), ExtResource("5_gfwja")]
+metadata/Probabilities = [5, 20, 30, 35]
 
 [node name="lane1" type="Node2D" parent="." unique_id=1437896092]
 

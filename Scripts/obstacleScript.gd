@@ -8,7 +8,7 @@ var speed: float # edit from meta data for each different obstacle. can be edite
 func _ready() -> void:
 	speed = get_meta("Speed")
 	logic = get_node($"/root/Game/Logic Manager".get_path())
-	print("ALIVE")
+	#print("ALIVE")
 
 func _physics_process(_delta: float) -> void:
 	if logic.paused:

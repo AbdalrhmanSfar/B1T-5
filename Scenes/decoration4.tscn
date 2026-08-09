@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://pvapgfbhf4y4"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_nesvi"]
+[ext_resource type="Texture2D" uid="uid://dun86at3o0558" path="res://Sprites/bushes.png" id="2_nesvi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvda2"]
+atlas = ExtResource("2_nesvi")
+region = Rect2(0, 0, 90, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvda2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+size = Vector2(22, 48)
+
+[node name="Bushes" type="CharacterBody2D" unique_id=91853143]
+collision_layer = 12
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_nesvi")
+metadata/Speed = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
+shape = SubResource("RectangleShape2D_g43dh")

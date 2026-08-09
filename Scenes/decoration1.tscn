@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cqhc1owd2kq8p"]
+
+[ext_resource type="Script" uid="uid://bpt4iqojdijdn" path="res://Scripts/obstacleScript.gd" id="1_mveka"]
+[ext_resource type="Texture2D" uid="uid://cxlrnn4mojdt3" path="res://Sprites/fire_hydrant.png" id="2_mveka"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdl8s"]
+atlas = ExtResource("2_mveka")
+region = Rect2(0, 0, 52, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bk2vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdl8s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g43dh"]
+size = Vector2(22, 40.5)
+
+[node name="Fire hydrant" type="CharacterBody2D" unique_id=91853143]
+collision_layer = 12
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_mveka")
+metadata/Speed = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933697376]
+sprite_frames = SubResource("SpriteFrames_bk2vb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1272851158]
+shape = SubResource("RectangleShape2D_g43dh")

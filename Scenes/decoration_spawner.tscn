@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bai8xg51l3qkr"]
+
+[ext_resource type="Script" uid="uid://bi05q1wqu6764" path="res://Scripts/decoration_spawner.gd" id="1_q0i5q"]
+[ext_resource type="PackedScene" uid="uid://cqhc1owd2kq8p" path="res://Scenes/decoration1.tscn" id="2_q0i5q"]
+[ext_resource type="PackedScene" uid="uid://pv8uqf8fc0ik" path="res://Scenes/decoration2.tscn" id="3_w0h78"]
+[ext_resource type="PackedScene" uid="uid://dsbvuyb2ja6wa" path="res://Scenes/decoration3.tscn" id="4_ht5it"]
+[ext_resource type="PackedScene" uid="uid://pvapgfbhf4y4" path="res://Scenes/decoration4.tscn" id="5_tyrwe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
+size = Vector2(20, 402)
+
+[node name="Decoration Spawner" type="Node2D" unique_id=1301030244]
+script = ExtResource("1_q0i5q")
+metadata/Objects = [ExtResource("2_q0i5q"), ExtResource("3_w0h78"), ExtResource("4_ht5it"), ExtResource("5_tyrwe")]
+metadata/Probabilities = [10, 10, 50, 50]
+metadata/index = 0
+
+[node name="Timer" type="Timer" parent="." unique_id=81733665]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=765780736]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1286646607]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_bk2vb")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_shape_exited" from="Area2D" to="." method="_on_area_2d_body_shape_exited"]
