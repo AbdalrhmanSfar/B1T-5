@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://pvapgfbhf4y4" path="res://Scenes/decoration4.tscn" id="5_tyrwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
-size = Vector2(20, 402)
+size = Vector2(20, 543)
 
 [node name="Decoration Spawner" type="Node2D" unique_id=1301030244]
 script = ExtResource("1_q0i5q")
@@ -23,7 +23,6 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1286646607]
-position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_bk2vb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

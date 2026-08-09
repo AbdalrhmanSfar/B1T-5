@@ -8,15 +8,13 @@ extends Node2D
 @onready var objects: Array
 @onready var probabilities: Array
 var probSum=0
-var canSpawn = true
+var canSpawn = false # this will edit itself when the initial decoration leaves the spawning area
 var index: int 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	index = get_meta("index")
 	position.x = logic.pavementWidth*(-0.5+index)
-	if index == 0:
-		rotation_degrees = 180
 	objects = get_meta("Objects")
 	probabilities = get_meta("Probabilities")
 	for p in probabilities:
@@ -43,7 +41,8 @@ func spawnRandomObject() -> void:
 	print("Spawned")
 	add_child(object)
 	object.position = Vector2(0,0)
-	object.rotation_degrees = rotation_degrees
+	if index == 0:
+		object.rotation_degrees = 180
 	canSpawn = false
 
 
