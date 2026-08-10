@@ -32,6 +32,7 @@ var alive = true
 var sceneID = 2
 
 @onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"
+@onready var highScoreLabel: Label = $"../UI/VBoxContainer/highScoreLabel"
 
 
 # Called when the node enters the scene tree for the first time.
@@ -51,6 +52,11 @@ func _process(_delta: float) -> void:
 	
 	timer += _delta
 	score += (multiplyer * _delta * 10)
+	if score > Global.highScore:
+		Global.highScore = score
+		Global.config.set_value("others", "highScore", score)
+		Global.config.save(Global.settingsFilePath)
+		highScoreLabel.show()
 	gameDifficulty = clampi(gameDifficulty,0,maxDifficulty)
 	if gameDifficulty < maxDifficulty and score >= difficultyThresholds[gameDifficulty]:
 		gameDifficulty += 1

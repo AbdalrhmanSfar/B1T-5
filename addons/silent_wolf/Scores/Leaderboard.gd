@@ -17,6 +17,7 @@ func _ready():
 	control.anchor_right = leaderboardSize
 	if leaderboardSize < 1:
 		closeLeaderboardButton.hide()
+		control.anchor_top = 0.1
 	
 	print("SilentWolf.Scores.leaderboards: " + str(SilentWolf.Scores.leaderboards))
 	print("SilentWolf.Scores.ldboard_config: " + str(SilentWolf.Scores.ldboard_config))
@@ -93,6 +94,8 @@ func score_in_score_array(scores: Array, new_score: Dictionary) -> bool:
 
 
 func add_item(player_name: String, score_value: String) -> void:
+	if leaderboardSize < 1.0 && namesSet.size() >= 5:
+		return
 	for name in namesSet:
 		if name == player_name:
 			return

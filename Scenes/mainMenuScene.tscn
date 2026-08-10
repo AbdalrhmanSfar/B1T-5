@@ -37,6 +37,18 @@ bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sm3to"]
 bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb6iy"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv06l"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7bgm"]
+bg_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t7l62"]
+bg_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+
 [sub_resource type="Animation" id="Animation_ihg27"]
 length = 0.001
 tracks/0/type = "value"
@@ -568,26 +580,45 @@ grow_vertical = 2
 [node name="LineEdit" type="LineEdit" parent="enterNameContainer" unique_id=566339143]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.38
+anchor_left = 0.33
 anchor_top = 0.44
-anchor_right = 0.62
+anchor_right = 0.67
 anchor_bottom = 0.56
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 41
-placeholder_text = "Enter your name:"
+theme_override_colors/font_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_uneditable_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_selected_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/caret_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_lb6iy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb6iy")
+text = "Enter your name:"
+alignment = 1
 
 [node name="submitNameButton" type="Button" parent="enterNameContainer" unique_id=1020938310]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.38000003
-anchor_top = 0.57
-anchor_right = 0.62
+anchor_left = 0.33
+anchor_top = 0.56
+anchor_right = 0.67
 anchor_bottom = 0.64
 offset_left = -6.1035156e-05
 offset_right = -0.00012207031
-theme_override_font_sizes/font_size = 46
-text = "Submit"
+theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_focus_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_colors/font_hover_color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("5_ipe3l")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_pv06l")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q7bgm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t7l62")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_q7bgm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t7l62")
+text = "SUBMIT"
 
 [node name="settingsPanel" parent="." unique_id=1924778424 instance=ExtResource("3_gqcci")]
 visible = false
@@ -623,11 +654,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enter0" type="TextureRect" parent="tutorialInstructions/Label5" unique_id=1429316734]
-layout_mode = 0
-offset_left = 467.0
-offset_top = 786.0
-offset_right = 612.9643
-offset_bottom = 908.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -72.98218
+offset_top = -61.0
+offset_right = 72.98218
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_k35w8")
 
 [node name="Label" type="Label" parent="tutorialInstructions" unique_id=1046045121]
@@ -654,11 +692,18 @@ horizontal_alignment = 1
 
 [node name="Enter1" type="TextureRect" parent="tutorialInstructions" unique_id=2088350685]
 visible = false
-layout_mode = 0
-offset_left = 467.0
-offset_top = 786.0
-offset_right = 612.9643
-offset_bottom = 908.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -72.98218
+offset_top = -61.0
+offset_right = 72.98218
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_k35w8")
 
 [node name="Label3" type="Label" parent="tutorialInstructions" unique_id=893921084]
@@ -694,19 +739,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enter2" type="TextureRect" parent="tutorialInstructions/Label4" unique_id=772507267]
-layout_mode = 0
-offset_left = 467.0
-offset_top = 786.0
-offset_right = 612.9643
-offset_bottom = 908.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -72.98218
+offset_top = -61.0
+offset_right = 72.98218
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_k35w8")
 
 [node name="Label6" type="Label" parent="tutorialInstructions" unique_id=1641397942]
 visible = false
-layout_mode = 0
-offset_top = 406.0
-offset_right = 1056.0
-offset_bottom = 556.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
@@ -714,31 +766,45 @@ theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
 text = "Exhaustion wins
 Your eyes betray you
-You blink"
+You blink
+
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label7" type="Label" parent="tutorialInstructions" unique_id=2069085894]
 visible = false
-layout_mode = 0
-offset_top = 626.0
-offset_right = 1056.0
-offset_bottom = 674.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.27450982, 0.2784314, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("5_ipe3l")
 theme_override_font_sizes/font_size = 48
-text = "Start?"
+text = "
+
+
+
+
+Start?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enter3" type="TextureRect" parent="tutorialInstructions/Label7" unique_id=879370779]
-layout_mode = 0
-offset_left = 467.0
-offset_top = 160.0
-offset_right = 612.9643
-offset_bottom = 282.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -72.98218
+offset_top = -61.0
+offset_right = 72.98218
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_k35w8")
 
 [node name="Label8" type="Label" parent="tutorialInstructions" unique_id=2064871026]
@@ -763,11 +829,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Enter4" type="TextureRect" parent="tutorialInstructions/Label8" unique_id=187904860]
-layout_mode = 0
-offset_left = 467.0
-offset_top = 786.0
-offset_right = 612.9643
-offset_bottom = 908.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.75
+anchor_right = 0.5
+anchor_bottom = 0.75
+offset_left = -72.98218
+offset_top = -61.0
+offset_right = 72.98218
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("7_k35w8")
 
 [node name="obstacles" type="Node2D" parent="." unique_id=1821821866]

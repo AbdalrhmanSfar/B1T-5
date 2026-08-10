@@ -7,6 +7,7 @@ extends Control
 @onready var nameBox: LineEdit = $enterNameContainer/LineEdit
 @onready var levelSelector: HBoxContainer = $levelSelector
 @onready var playButton: Button = $mainButtons/playButton
+@onready var movingStreets: CanvasLayer = $movingStreet
 
 var streetsSpeed = 1 # base speed before car speeding up (which is the increase in difficulty)
 @onready var streets: Control = $movingStreet/Control
@@ -45,6 +46,8 @@ func _ready() -> void:
 	if Global.config.get_value("settings", "name") == "a":
 		mainButtons.hide()
 		enterNameContainer.show()
+		streets.hide()
+		car.hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -104,12 +107,17 @@ func _on_quit_credits_pressed() -> void:
 
 
 func _on_submit_name_button_pressed() -> void:
+	if nameBox.text.is_empty():
+		return
 	SFX.button_sfx()
-	Global.config.set_value("settings","name",nameBox.text)
-	Global.config.save(Global.settingsFilePath)
 	Global.playerName = nameBox.text
+	Global.playerName = Global.playerName.to_upper()
+	Global.config.set_value("settings","name",Global.playerName)
+	Global.config.save(Global.settingsFilePath)
 	enterNameContainer.hide()
 	mainButtons.show()
+	streets.show()
+	car.show()
 
 
 func _on_first_play_button_pressed() -> void:

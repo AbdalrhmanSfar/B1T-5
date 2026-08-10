@@ -6,6 +6,7 @@ extends Node
 @onready var streets: CanvasLayer = $"../movingStreet"
 @onready var speedHandle: Node2D = %"handle"
 var queue: Array = []
+@onready var highScoreLabel: Label = $"../UI/VBoxContainer/highScoreLabel"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if logic.alive:
-		score.text = str(logic.score).pad_decimals(0)
+		score.text = "SCORE: " + str(logic.score).pad_decimals(0)
 	for i in range(queue.size()):
 		queue[i].position.y += ((streetsSpeed + logic.globalSpeedIncrement) * logic.speedScale * _delta)
 	var isOutside = not queue.back().get_viewport_rect().intersects(queue.back().get_global_rect())

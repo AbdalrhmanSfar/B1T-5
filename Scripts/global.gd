@@ -4,6 +4,7 @@ var closedSettings: bool = false
 var config = ConfigFile.new()
 const settingsFilePath = "user://settings.ini"
 var playerName
+var highScore
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,11 +14,13 @@ func _ready() -> void:
 		config.set_value("settings", "sfx", 1.0)
 		config.set_value("settings", "fullscreen", false)
 		config.set_value("settings", "name", "a")
+		config.set_value("others", "highScore", 0)
 		config.save(settingsFilePath)
 	else: 
 		config.load(settingsFilePath)
 		playerName = config.get_value("settings", "name")
-		
+	
+	highScore = config.get_value("others", "highScore")
 	
 	# leaderboard initialiser
 	SilentWolf.configure({
