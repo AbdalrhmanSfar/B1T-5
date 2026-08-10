@@ -7,6 +7,9 @@ extends Node
 @onready var speedHandle: Node2D = %"handle"
 var queue: Array = []
 @onready var highScoreLabel: Label = $"../UI/VBoxContainer/highScoreLabel"
+@onready var camera: Camera2D = %"Camera2D"
+var cameraShaking: bool = false
+@export var cameraShakeIntensity: float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,3 +30,15 @@ func _process(_delta: float) -> void:
 		print("moved road")
 	
 	speedHandle.rotation_degrees = -88 + 176.0*((1.0+logic.globalSpeedIncrement)/(1.0+logic.globalSpeedIncrementMax))
+	
+	if cameraShaking:
+		var t=cameraShakeIntensity*(logic.globalSpeedIncrementTarget-logic.globalSpeedIncrement)
+		camera.offset.x = randf_range(-t,t)
+		camera.offset.y = randf_range(-t,t)
+
+func startCamShake() -> void:
+	cameraShaking = true
+
+func stopCamShake() -> void:
+	camera.offset = Vector2(0,0)
+	cameraShaking = false
