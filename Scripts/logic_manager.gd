@@ -21,7 +21,7 @@ var globalSpeedIncrementMax: float
 @export var timeBetweenBlinks: Array[float] = [15, 10, 8, 8, 6, 6, 5, 5, 4, 4, 3]
 
 @onready var player: Node = %"Player"
-@onready var UIManagar: Node = %"UI Manager"
+#@onready var UIManagar: Node = %"UI Manager"
 const speedScale = 300.0 # speed will be (Speed+playerspeed) * speedScale
 var paused: bool = false
 var score: float = 0 # time survived
@@ -66,11 +66,11 @@ func _process(_delta: float) -> void:
 		gameDifficulty += 1
 		globalSpeedIncrementTarget = globalSpeedIncrements[gameDifficulty]
 		SFX.vroom_sfx()
-		UIManagar.startCamShake()
+		#UIManagar.startCamShake()
 		
 	globalSpeedIncrement = lerpf(globalSpeedIncrement, globalSpeedIncrementTarget, min(1.0, _delta * lerp_speed))
-	if globalSpeedIncrementTarget-globalSpeedIncrement <= 0.01: #consider them equal
-		UIManagar.stopCamShake()
+	#if globalSpeedIncrementTarget-globalSpeedIncrement <= 0.01: #consider them equal
+		#UIManagar.stopCamShake()
 	
 	if int(timer) != int(timer - _delta): 
 		energy -= 1
