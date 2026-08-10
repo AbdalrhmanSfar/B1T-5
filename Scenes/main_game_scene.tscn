@@ -270,7 +270,7 @@ layer = -5
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=404723489]
 anchors_preset = -1
-anchor_right = 0.325
+anchor_right = 0.5
 anchor_bottom = 1.0
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 

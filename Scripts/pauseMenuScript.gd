@@ -58,6 +58,7 @@ func _on_quit_to_main_button_pressed() -> void:
 	MusicPlayerSingleton.stream_paused = false
 	get_tree().paused = false
 	logic.paused = false
+	logic.invincible = true
 	FadeTransitionSceneV2.loadScene("res://Scenes/mainMenuScene.tscn")
 
 
@@ -66,6 +67,7 @@ func _on_restart_button_pressed() -> void:
 	MusicPlayerSingleton.stream_paused = false
 	get_tree().paused = false
 	logic.paused = false
+	logic.invincible = true
 	FadeTransitionSceneV2.loadScene(get_tree().current_scene.scene_file_path)
 
 
