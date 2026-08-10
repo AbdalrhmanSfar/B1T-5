@@ -8,6 +8,7 @@ var loser_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
 var start_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
 var vroom_sound: AudioStream = preload("res://Assets/SFX/Vroom.wav")
 var switch_sound: AudioStream = preload("res://Assets/SFX/Switch.wav")
+var warning_sound: AudioStream = preload("res://Assets/SFX/Warning.wav")
 var sfx_player_scene: PackedScene = preload("res://Scenes/SFXPlayer.tscn")
 
 @export var default_volume_linear: float = 1.0 
@@ -72,3 +73,6 @@ func start_sfx() -> void:
 func switch_sfx() -> void:
 	var pitch := randf_range(0.8, 1.2)
 	await play_sfx(switch_sound, 1, pitch)
+func warning_sfx() -> void:
+	var pitch := randf_range(0.8, 1.2)
+	await play_sfx(warning_sound, 1, pitch)

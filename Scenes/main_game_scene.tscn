@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://ie1a0wb5jro7" path="res://Sprites/speed3.png" id="19_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://bayr1tx48l662" path="res://Sprites/driving wheel.png" id="20_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://b2wvxwm4slcg4" path="res://Sprites/warning.png" id="21_aq4al"]
+[ext_resource type="Texture2D" uid="uid://dr3s2ogpktq6l" path="res://Sprites/dice.png" id="22_mygrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
@@ -42,7 +43,7 @@ unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=668532660 node_paths=PackedStringArray("steering_wheel") instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
-position = Vector2(0, 390)
+position = Vector2(0, 396)
 lean_degrees = 15.0
 rotate_time = 0.3
 steering_wheel = NodePath("../Steering")
@@ -245,14 +246,14 @@ position = Vector2(0, 950)
 position = Vector2(0, 1220)
 
 [node name="Steering" type="Node2D" parent="." unique_id=726531127]
-position = Vector2(700, 283)
+position = Vector2(676, -8)
 scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Steering" unique_id=819825631]
 texture = ExtResource("20_vlxgi")
 
 [node name="Speed" type="Node2D" parent="." unique_id=385469035]
-position = Vector2(700, -243)
+position = Vector2(684, 395)
 scale = Vector2(2.5, 2.5)
 
 [node name="Meter" type="Sprite2D" parent="Speed" unique_id=176932781]
@@ -272,6 +273,14 @@ anchors_preset = -1
 anchor_right = 0.325
 anchor_bottom = 1.0
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
+
+[node name="Dice" type="Node2D" parent="." unique_id=1109761777]
+position = Vector2(-24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Dice" unique_id=831478876]
+position = Vector2(693, -388)
+scale = Vector2(3, 3)
+texture = ExtResource("22_mygrg")
 
 [connection signal="evilSpawn" from="Obstacle Spawner" to="UI Manager" method="_on_obstacle_spawner_evil_spawn"]
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]
