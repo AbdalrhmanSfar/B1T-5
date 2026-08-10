@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coocbyh20qki6"
-path="res://.godot/imported/driving_wheel.png-9144bb4915cfce4f186671a58ae9603b.ctex"
+uid="uid://cjpot36ruym5v"
+path="res://.godot/imported/tik tik tik.png-dfd03717da8bf56f3635d74d177975a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/driving_wheel.png"
-dest_files=["res://.godot/imported/driving_wheel.png-9144bb4915cfce4f186671a58ae9603b.ctex"]
+source_file="res://Sprites/tik tik tik.png"
+dest_files=["res://.godot/imported/tik tik tik.png-dfd03717da8bf56f3635d74d177975a6.ctex"]
 
 [params]
 

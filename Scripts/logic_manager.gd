@@ -13,7 +13,8 @@ var maxDifficulty: int
 @export var globalSpeedIncrements: Array[float] = [0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 2, 2.5, 3]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
-@export var lerp_speed: float = 6.0
+var globalSpeedIncrementMax: float
+@export var lerp_speed: float = 3.0
 @export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7, 0.7, 0.7, 0.5, 0.3, 0.3]
 @export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8, 8, 8, 8, 8, 8]
 
@@ -40,6 +41,7 @@ func _ready() -> void:
 	maxDifficulty = difficultyThresholds.size()-1
 	globalSpeedIncrementTarget = globalSpeedIncrements[0]
 	globalSpeedIncrement = globalSpeedIncrementTarget
+	globalSpeedIncrementMax = globalSpeedIncrements[-1]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
