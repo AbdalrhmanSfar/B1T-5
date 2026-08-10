@@ -253,7 +253,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("20_vlxgi")
 
 [node name="Speed" type="Node2D" parent="." unique_id=385469035]
-position = Vector2(684, 436)
+position = Vector2(684, 441)
 scale = Vector2(2.5, 2.5)
 
 [node name="Meter" type="Sprite2D" parent="Speed" unique_id=176932781]
