@@ -186,19 +186,17 @@ position = Vector2(0, 950)
 position = Vector2(0, 1220)
 
 [node name="Steering" type="Node2D" parent="." unique_id=726531127]
-position = Vector2(674, 283)
+position = Vector2(700, 283)
 scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Steering" unique_id=819825631]
 texture = ExtResource("20_vlxgi")
 
 [node name="Speed" type="Node2D" parent="." unique_id=385469035]
-position = Vector2(674, 283)
-scale = Vector2(4, 4)
+position = Vector2(700, -243)
+scale = Vector2(2.5, 2.5)
 
 [node name="Meter" type="Sprite2D" parent="Speed" unique_id=176932781]
-position = Vector2(-4.5, -128.5)
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("19_vlxgi")
 
 [node name="handle" type="Sprite2D" parent="Speed/Meter" unique_id=496741822]
