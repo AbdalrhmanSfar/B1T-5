@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cx88qb882c323"
-path="res://.godot/imported/steering wheel.png-1846d598fcce79c268345ca4d1ad9c43.ctex"
+uid="uid://ie1a0wb5jro7"
+path="res://.godot/imported/speed3.png-84d582198c17a26b91b8e46e02bdf95b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/steering wheel.png"
-dest_files=["res://.godot/imported/steering wheel.png-1846d598fcce79c268345ca4d1ad9c43.ctex"]
+source_file="res://Sprites/speed3.png"
+dest_files=["res://.godot/imported/speed3.png-84d582198c17a26b91b8e46e02bdf95b.ctex"]
 
 [params]
 
