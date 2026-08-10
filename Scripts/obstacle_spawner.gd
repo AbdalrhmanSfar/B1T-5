@@ -58,6 +58,7 @@ func spawnRandomObject(laneIndex: int) -> void:
 	laneQueue[laneIndex].push_front(object)
 	if object.has_meta("evilCarDetection"):
 		evilSpawn.emit(laneIndex)
+		SFX.warning_sfx()
 
 
 func _on_timer_1_timeout() -> void:
