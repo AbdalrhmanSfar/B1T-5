@@ -275,7 +275,7 @@ anchor_bottom = 1.0
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
 [node name="Dice" type="Node2D" parent="." unique_id=1109761777]
-position = Vector2(250, 0)
+position = Vector2(200, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Dice" unique_id=831478876]
 position = Vector2(693, -388)
