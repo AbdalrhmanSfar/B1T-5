@@ -2,8 +2,8 @@ extends Node2D
 
 var initial_off_time_start = 1
 var initial_off_time_end = 5
-@export var range_start: Array[float] = [3,3,3,3,2,2,2,1,1,0.75]
-@export var range_end: Array[float] = [25,15,7,7,7,5,5,3,3,3]
+@export var range_start: Array[float] = [3,3,3,3,2,2,2,1,1,0.5]
+@export var range_end: Array[float] = [25,15,7,7,7,5,5,3,3,2.5]
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Array[Timer] = [$"lane1/Timer1",$"lane2/Timer2",$"lane3/Timer3"]
 var objects: Array
