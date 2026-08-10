@@ -15,7 +15,7 @@ var globalSpeedIncrement: float = globalSpeedIncrements[0]
 var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
 var globalSpeedIncrementMax: float
 @export var lerp_speed: float = 3.0
-@export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7, 0.7, 0.7, 0.5, 0.2, 0.1]
+@export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7, 0.5, 0.4, 0.3, 0.2, 0.1]
 @export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8, 8, 8, 8, 8, 8]
 
 @onready var player: Node = %"Player"

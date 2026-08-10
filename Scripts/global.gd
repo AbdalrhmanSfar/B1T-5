@@ -16,11 +16,11 @@ func _ready() -> void:
 		config.set_value("settings", "name", "a")
 		config.set_value("others", "highScore", 0)
 		config.save(settingsFilePath)
-	else: 
+	else:
 		config.load(settingsFilePath)
-		playerName = config.get_value("settings", "name")
 	
-	highScore = config.get_value("others", "highScore")
+	playerName = config.get_value("settings", "name","a")
+	highScore = config.get_value("others", "highScore",0)
 	
 	# leaderboard initialiser
 	SilentWolf.configure({

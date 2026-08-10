@@ -40,7 +40,7 @@ switch_dur = 0.08
 
 [node name="Player" parent="." unique_id=668532660 node_paths=PackedStringArray("steering_wheel") instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
-position = Vector2(0, 278.56)
+position = Vector2(0, 390)
 lean_degrees = 15.0
 rotate_time = 0.3
 steering_wheel = NodePath("../Steering")
