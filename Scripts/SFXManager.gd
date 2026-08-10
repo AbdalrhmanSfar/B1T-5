@@ -33,6 +33,7 @@ func play_sfx(clip: AudioStream, volume_linear: float = -1.0, pitch: float = 1.0
 		p.stream = clip
 		p.volume_db = _linear_to_db(default_volume_linear if volume_linear < 0.0 else volume_linear)
 		p.pitch_scale = pitch
+		p.bus = "SFX"
 
 		get_tree().current_scene.add_child(p)
 
@@ -43,6 +44,7 @@ func play_sfx(clip: AudioStream, volume_linear: float = -1.0, pitch: float = 1.0
 	else:
 		get_tree().current_scene.add_child(player)
 		if "play" in player:
+			player.bus = "SFX"
 			player.play()
 
 
