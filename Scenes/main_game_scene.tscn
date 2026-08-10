@@ -244,4 +244,5 @@ anchor_right = 0.325
 anchor_bottom = 1.0
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
+[connection signal="evilSpawn" from="Obstacle Spawner" to="Player" method="_on_obstacle_spawner_evil_spawn"]
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]

@@ -2,8 +2,6 @@ extends Node2D
 
 var initial_off_time_start = 1
 var initial_off_time_end = 5
-@export var range_start: Array[float] = [3,3,3,3,2,2,2,1,1,0.5]
-@export var range_end: Array[float] = [25,15,7,7,7,5,5,3,3,2.5]
 @onready var logic: Node = %"Logic Manager"
 @onready var timer: Array[Timer] = [$"lane1/Timer1",$"lane2/Timer2",$"lane3/Timer3"]
 var objects: Array
@@ -13,6 +11,7 @@ var probabilities: Array
 var laneQueue: Array
 var laneLatestPosition: Array[float] = [0,0,0]
 var probSum=0
+signal evilSpawn(laneIndex: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -57,6 +56,8 @@ func spawnRandomObject(laneIndex: int) -> void:
 	print("Spawned")
 	lanes[laneIndex].add_child(object)
 	laneQueue[laneIndex].push_front(object)
+	if object.has_meta("evilCarDetection"):
+		evilSpawn.emit(laneIndex)
 
 
 func _on_timer_1_timeout() -> void:
@@ -64,7 +65,7 @@ func _on_timer_1_timeout() -> void:
 	if not (laneLatestPosition[1] < consequtiveSpawningThreshold):
 		print(str(laneLatestPosition[1]) + " is ok to spawn")
 		spawnRandomObject(0)
-	timer[0].start(randf_range(range_start[logic.gameDifficulty],range_end[logic.gameDifficulty]))
+	timer[0].start(randf_range(logic.spawn_range_start[logic.gameDifficulty],logic.spawn_range_end[logic.gameDifficulty]))
 
 
 func _on_timer_2_timeout() -> void:
@@ -73,7 +74,7 @@ func _on_timer_2_timeout() -> void:
 	if not (laneLatestPosition[0] < consequtiveSpawningThreshold and laneLatestPosition[2] < consequtiveSpawningThreshold):
 		print(str(laneLatestPosition[0]) + str(laneLatestPosition[2]) + " is ok to spawn")
 		spawnRandomObject(1)
-	timer[1].start(randf_range(range_start[logic.gameDifficulty],range_end[logic.gameDifficulty]))
+	timer[1].start(randf_range(logic.spawn_range_start[logic.gameDifficulty],logic.spawn_range_end[logic.gameDifficulty]))
 
 
 func _on_timer_3_timeout() -> void:
@@ -81,4 +82,4 @@ func _on_timer_3_timeout() -> void:
 	if not (laneLatestPosition[1] < consequtiveSpawningThreshold):
 		print(str(laneLatestPosition[1]) + " is ok to spawn")
 		spawnRandomObject(2)
-	timer[2].start(randf_range(range_start[logic.gameDifficulty],range_end[logic.gameDifficulty]))
+	timer[2].start(randf_range(logic.spawn_range_start[logic.gameDifficulty],logic.spawn_range_end[logic.gameDifficulty]))

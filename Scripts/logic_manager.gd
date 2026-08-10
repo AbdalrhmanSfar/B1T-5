@@ -8,15 +8,17 @@ var lane_width: float
 @export var switch_dur: float = 0.12
 @export var switch_lock: bool = true
 @export var gameDifficulty: int = 0
-@export var difficultyThresholds: Array[float] = [20, 80, 120, 170, 220, 270, 300, 500, 1000, 2000]
+@export var difficultyThresholds: Array[float] = [20, 80, 120, 220, 320, 420, 520, 850, 1300, 2000]
 var maxDifficulty: int
-@export var globalSpeedIncrements: Array[float] = [0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 2, 2.5, 3]
+@export var globalSpeedIncrements: Array[float] = [0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 2, 2.5, 3, 3.5]
+@export var spawn_range_start: Array[float] = [3,3,3,3,2,2,2,1,1,0.5,0.5]
+@export var spawn_range_end: Array[float] = [25,15,7,7,7,5,5,3,3,2.5,2]
 var globalSpeedIncrement: float = globalSpeedIncrements[0]
 var globalSpeedIncrementTarget: float = globalSpeedIncrements[0]
 var globalSpeedIncrementMax: float
 @export var lerp_speed: float = 3.0
-@export var blinkLengthDifficulty: Array[float] = [2, 2, 1.5, 1, 0.7, 0.5, 0.4, 0.3, 0.2, 0.1]
-@export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8, 8, 8, 8, 8, 8]
+@export var blinkLengthDifficulty: Array[float] = [2, 1.5, 1, 0.7, 0.5, 0.4, 0.4, 0.3, 0.2, 0.1, 0.1]
+@export var timeBetweenBlinks: Array[float] = [15, 10, 10, 8, 8, 8, 8, 8, 8, 6, 6]
 
 @onready var player: Node = %"Player"
 @onready var UIManagar: Node = %"UI Manager"
@@ -40,7 +42,7 @@ var screenCenter = 40
 func _ready() -> void:
 	lane_width = street_width / float(lane_count)
 	energy = initialEnergy
-	maxDifficulty = difficultyThresholds.size()-1
+	maxDifficulty = difficultyThresholds.size()
 	globalSpeedIncrementTarget = globalSpeedIncrements[0]
 	globalSpeedIncrement = globalSpeedIncrementTarget
 	globalSpeedIncrementMax = globalSpeedIncrements[-1]
