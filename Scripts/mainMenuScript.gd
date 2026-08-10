@@ -52,6 +52,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	nameBox.deselect()
+	
 	if Input.is_action_just_pressed("ui_cancel"):
 		if creditsPanel.visible:
 			_on_quit_credits_pressed()

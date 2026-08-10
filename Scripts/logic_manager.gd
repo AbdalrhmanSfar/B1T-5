@@ -33,6 +33,7 @@ var timer = 0.0
 var alive = true
 var sceneID = 2
 var screenCenter = 40
+var invincible = false
 
 @onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"
 @onready var highScoreLabel: Label = $"../UI/VBoxContainer/highScoreLabel"
@@ -105,6 +106,8 @@ func shouldSaveHighScore(playerName: String, newScore: float):
 	
 
 func gameOver():
+	if invincible:
+		return
 	print("GAME OVER")
 	shouldSaveHighScore(Global.playerName, score)
 	print("play crash sfx")
