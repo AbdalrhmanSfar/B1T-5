@@ -10,6 +10,7 @@ var _tween: Tween
 @export var rotate_time := 0.35
 @export var steering_wheel: Node2D
 signal carMoved
+var pressdir: int
 
 func _ready() -> void:
 	current_lane = clampi(logic.start_lane, 0, logic.lane_count - 1)
@@ -21,19 +22,27 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if !logic.alive or logic.paused:
 		return
-	
-	if logic.switch_lock and is_switching:
-		return
 
 	if Input.is_action_just_pressed("lane_right"):
+		if logic.switch_lock and is_switching:
+			pressdir = 1
+			return
 		SFX.switch_sfx()
 		request_lane(current_lane + 1)
 		carMoved.emit()
 	elif Input.is_action_just_pressed("lane_left"):
+		if logic.switch_lock and is_switching:
+			pressdir = -1
+			return
 		SFX.switch_sfx()
 		request_lane(current_lane - 1)
 		carMoved.emit()
-	
+	elif pressdir != 0 and not (logic.switch_lock and is_switching):
+		print("found missed press")
+		SFX.switch_sfx()
+		request_lane(current_lane + pressdir)
+		pressdir = 0
+		carMoved.emit()
 
 func request_lane(new_lane: int) -> void:
 	new_lane = clampi(new_lane, 0, logic.lane_count - 1)
