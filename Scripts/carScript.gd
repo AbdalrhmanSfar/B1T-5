@@ -109,9 +109,3 @@ func _move_to_lane_center(lane_index: int, dir: float) -> void:
 		if is_instance_valid(steering_wheel):
 			steering_wheel.rotation_degrees = 0.0
 	)
-
-
-func _on_obstacle_spawner_evil_spawn(laneIndex: int) -> void:
-	if laneIndex == current_lane:
-		print("AAAAAAA " + str(laneIndex))
-		

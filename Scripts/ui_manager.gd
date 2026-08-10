@@ -10,12 +10,21 @@ var queue: Array = []
 @onready var camera: Camera2D = %"Camera2D"
 var cameraShaking: bool = false
 @export var cameraShakeIntensity: float = 10
+var laneWarnings: Array
+@export var warningBlinkDuration: float = 0.25
+@export var warningBlinkCount: int = 3
+var blinkTimesLeft: Array[int] = [0,0,0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	laneWarnings = %"Warnings".get_children()
+	#print(laneWarnings.size())
 	for child in streets.get_children():
 		queue.push_back(child)
-
+	for laneIndex in range(laneWarnings.size()):
+		#print("set "+str(laneIndex)+" to "+str(logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)))
+		laneWarnings[laneIndex].position.x = logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
+		laneWarnings[laneIndex].visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -35,6 +44,8 @@ func _process(_delta: float) -> void:
 		var t=cameraShakeIntensity*(logic.globalSpeedIncrementTarget-logic.globalSpeedIncrement)
 		camera.offset.x = randf_range(-t,t)
 		camera.offset.y = randf_range(-t,t)
+	
+			
 
 func startCamShake() -> void:
 	cameraShaking = true
@@ -42,3 +53,46 @@ func startCamShake() -> void:
 func stopCamShake() -> void:
 	camera.offset = Vector2(0,0)
 	cameraShaking = false
+
+func _on_obstacle_spawner_evil_spawn(laneIndex: int) -> void:
+	blinkTimesLeft[laneIndex] = warningBlinkCount
+	var timer = laneWarnings[laneIndex].get_child(0)
+	laneWarnings[laneIndex].visible = true
+	blinkTimesLeft[laneIndex] -= 1
+	timer.start(warningBlinkDuration)
+
+func _on_timer1_timeout() -> void:
+	if laneWarnings[0].visible:
+		laneWarnings[0].visible = false
+		var timer = laneWarnings[0].get_child(0)
+		timer.start(warningBlinkDuration/2)
+	elif blinkTimesLeft[0]:
+		laneWarnings[0].visible = true
+		blinkTimesLeft[0] -= 1
+		var timer = laneWarnings[0].get_child(0)
+		timer.start(warningBlinkDuration)
+		
+
+
+func _on_timer2_timeout() -> void:
+	if laneWarnings[1].visible:
+		laneWarnings[1].visible = false
+		var timer = laneWarnings[1].get_child(0)
+		timer.start(warningBlinkDuration/2)
+	elif blinkTimesLeft[1]:
+		laneWarnings[1].visible = true
+		blinkTimesLeft[1] -= 1
+		var timer = laneWarnings[1].get_child(0)
+		timer.start(warningBlinkDuration)
+
+
+func _on_timer3_timeout() -> void:
+	if laneWarnings[2].visible:
+		laneWarnings[2].visible = false
+		var timer = laneWarnings[2].get_child(0)
+		timer.start(warningBlinkDuration/2)
+	elif blinkTimesLeft[2]:
+		laneWarnings[2].visible = true
+		blinkTimesLeft[2] -= 1
+		var timer = laneWarnings[2].get_child(0)
+		timer.start(warningBlinkDuration)

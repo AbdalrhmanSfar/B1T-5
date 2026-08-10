@@ -20,11 +20,18 @@
 [ext_resource type="PackedScene" uid="uid://pv8uqf8fc0ik" path="res://Scenes/decoration2.tscn" id="17_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://ie1a0wb5jro7" path="res://Sprites/speed3.png" id="19_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://bayr1tx48l662" path="res://Sprites/driving wheel.png" id="20_vlxgi"]
+[ext_resource type="Texture2D" uid="uid://b2wvxwm4slcg4" path="res://Sprites/warning.png" id="21_aq4al"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
 size = Vector2(2021, 254)
 
 [node name="Game" type="Node2D" unique_id=911596182]
+
+[node name="Logic Manager" type="Node" parent="." unique_id=568323203]
+unique_name_in_owner = true
+process_mode = 3
+script = ExtResource("3_t25fw")
+switch_dur = 0.08
 
 [node name="UI Manager" type="Node" parent="." unique_id=917382125]
 unique_name_in_owner = true
@@ -32,12 +39,6 @@ script = ExtResource("1_udhrh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1330272532]
 unique_name_in_owner = true
-
-[node name="Logic Manager" type="Node" parent="." unique_id=568323203]
-unique_name_in_owner = true
-process_mode = 3
-script = ExtResource("3_t25fw")
-switch_dur = 0.08
 
 [node name="Player" parent="." unique_id=668532660 node_paths=PackedStringArray("steering_wheel") instance=ExtResource("5_t40n3")]
 unique_name_in_owner = true
@@ -56,6 +57,34 @@ script = ExtResource("6_udhrh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Despawn area" unique_id=752998570]
 shape = SubResource("RectangleShape2D_bk2vb")
+
+[node name="Warnings" type="Node2D" parent="." unique_id=2132238707]
+unique_name_in_owner = true
+position = Vector2(0, -440)
+
+[node name="lane1" type="Sprite2D" parent="Warnings" unique_id=1611800866]
+position = Vector2(0, -11)
+scale = Vector2(2, 2)
+texture = ExtResource("21_aq4al")
+
+[node name="Timer" type="Timer" parent="Warnings/lane1" unique_id=1269093871]
+one_shot = true
+
+[node name="lane2" type="Sprite2D" parent="Warnings" unique_id=1923169521]
+position = Vector2(0, -11)
+scale = Vector2(2, 2)
+texture = ExtResource("21_aq4al")
+
+[node name="Timer" type="Timer" parent="Warnings/lane2" unique_id=233789505]
+one_shot = true
+
+[node name="lane3" type="Sprite2D" parent="Warnings" unique_id=1765512895]
+position = Vector2(0, -11)
+scale = Vector2(2, 2)
+texture = ExtResource("21_aq4al")
+
+[node name="Timer" type="Timer" parent="Warnings/lane3" unique_id=431058714]
+one_shot = true
 
 [node name="movingStreet" type="CanvasLayer" parent="." unique_id=578794239]
 layer = -1
@@ -244,5 +273,8 @@ anchor_right = 0.325
 anchor_bottom = 1.0
 color = Color(0.77254903, 0.78039217, 0.8666667, 1)
 
-[connection signal="evilSpawn" from="Obstacle Spawner" to="Player" method="_on_obstacle_spawner_evil_spawn"]
+[connection signal="evilSpawn" from="Obstacle Spawner" to="UI Manager" method="_on_obstacle_spawner_evil_spawn"]
 [connection signal="body_entered" from="Despawn area" to="Despawn area" method="_on_body_entered"]
+[connection signal="timeout" from="Warnings/lane1/Timer" to="UI Manager" method="_on_timer1_timeout"]
+[connection signal="timeout" from="Warnings/lane2/Timer" to="UI Manager" method="_on_timer2_timeout"]
+[connection signal="timeout" from="Warnings/lane3/Timer" to="UI Manager" method="_on_timer3_timeout"]
