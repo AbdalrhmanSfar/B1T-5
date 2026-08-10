@@ -23,7 +23,7 @@ func _ready() -> void:
 	
 	for laneIndex in range(lanes.size()):
 		laneQueue.push_back([])
-		lanes[laneIndex].position.x = (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
+		lanes[laneIndex].position.x = logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
 		timer[laneIndex].start(randf_range(initial_off_time_start,initial_off_time_end))
 
 func updateLatestPos(i: int) -> void:

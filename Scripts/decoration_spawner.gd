@@ -14,7 +14,7 @@ var index: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	index = get_meta("index")
-	position.x = logic.pavementWidth*(-0.5+index)
+	position.x = logic.screenCenter + logic.pavementWidth*(-0.5+index)
 	objects = get_meta("Objects")
 	probabilities = get_meta("Probabilities")
 	for p in probabilities:

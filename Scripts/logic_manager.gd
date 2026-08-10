@@ -30,6 +30,7 @@ var energy: int
 var timer = 0.0
 var alive = true
 var sceneID = 2
+var screenCenter = 40
 
 @onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"
 @onready var highScoreLabel: Label = $"../UI/VBoxContainer/highScoreLabel"

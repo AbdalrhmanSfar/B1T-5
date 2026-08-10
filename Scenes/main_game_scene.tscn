@@ -59,8 +59,8 @@ shape = SubResource("RectangleShape2D_bk2vb")
 
 [node name="movingStreet" type="CanvasLayer" parent="." unique_id=578794239]
 layer = -1
-offset = Vector2(-375, 0)
-transform = Transform2D(1, 0, 0, 1, -375, 0)
+offset = Vector2(-320, 0)
+transform = Transform2D(1, 0, 0, 1, -320, 0)
 follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="movingStreet" unique_id=1677986327]
