@@ -7,7 +7,7 @@ var hover_sound: AudioStream = preload("res://Assets/SFX/Hover.wav")
 var loser_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
 var start_sound: AudioStream = preload("res://Assets/SFX/Loser.wav")
 var vroom_sound: AudioStream = preload("res://Assets/SFX/Vroom.wav")
-
+var switch_sound: AudioStream = preload("res://Assets/SFX/Switch.wav")
 var sfx_player_scene: PackedScene = preload("res://Scenes/SFXPlayer.tscn")
 
 @export var default_volume_linear: float = 1.0 
@@ -67,3 +67,6 @@ func lose_sfx() -> void:
 func start_sfx() -> void:
 	var pitch := randf_range(0.8, 1.2)
 	await play_sfx(loser_sound, .8, pitch)
+func switch_sfx() -> void:
+	var pitch := randf_range(0.8, 1.2)
+	await play_sfx(switch_sound, 1, pitch)

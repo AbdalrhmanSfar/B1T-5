@@ -26,9 +26,11 @@ func _process(_delta: float) -> void:
 		return
 
 	if Input.is_action_just_pressed("lane_right"):
+		SFX.switch_sfx()
 		request_lane(current_lane + 1)
 		carMoved.emit()
 	elif Input.is_action_just_pressed("lane_left"):
+		SFX.switch_sfx()
 		request_lane(current_lane - 1)
 		carMoved.emit()
 	
