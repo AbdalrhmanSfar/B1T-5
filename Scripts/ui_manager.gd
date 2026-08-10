@@ -4,6 +4,7 @@ extends Node
 @onready var score: Label = %ScoreUI
 @export var streetsSpeed = 1.0 # base speed before car speeding up (which is the increase in difficulty)
 @onready var streets: CanvasLayer = $"../movingStreet"
+@onready var speedHandle: Node2D = %"handle"
 var queue: Array = []
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +25,4 @@ func _process(_delta: float) -> void:
 		queue.push_front(queue.pop_back())
 		print("moved road")
 	
-	
-	
-	
-	
+	speedHandle.rotation_degrees = -88 + 176.0*((1.0+logic.globalSpeedIncrement)/(1.0+logic.globalSpeedIncrementMax))

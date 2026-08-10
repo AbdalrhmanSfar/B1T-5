@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c5sxqbuwqbffh" path="res://Sprites/score porpol.png" id="8_03yvr"]
 [ext_resource type="PackedScene" uid="uid://b8i1uplm3iq0o" path="res://Scenes/gameOverMenu.tscn" id="8_t25fw"]
 [ext_resource type="PackedScene" uid="uid://cnrqqfrpgnfds" path="res://Scenes/Music.tscn" id="10_mlj66"]
+[ext_resource type="Texture2D" uid="uid://bsv0wvdk7mjp4" path="res://Sprites/speed2.png" id="10_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://cjpot36ruym5v" path="res://Sprites/tik tik tik.png" id="11_aq4al"]
 [ext_resource type="PackedScene" uid="uid://b2h8ok8yfc7wb" path="res://addons/silent_wolf/Scores/Leaderboard.tscn" id="11_jl3vg"]
 [ext_resource type="PackedScene" uid="uid://bai8xg51l3qkr" path="res://Scenes/decoration_spawner.tscn" id="13_2f4cu"]
@@ -18,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://dsbvuyb2ja6wa" path="res://Scenes/decoration3.tscn" id="15_wgi8v"]
 [ext_resource type="PackedScene" uid="uid://pvapgfbhf4y4" path="res://Scenes/decoration4.tscn" id="16_1achy"]
 [ext_resource type="PackedScene" uid="uid://pv8uqf8fc0ik" path="res://Scenes/decoration2.tscn" id="17_vlxgi"]
-[ext_resource type="Texture2D" uid="uid://ie1a0wb5jro7" path="res://Sprites/speed3.png" id="19_vlxgi"]
 [ext_resource type="Texture2D" uid="uid://bayr1tx48l662" path="res://Sprites/driving wheel.png" id="20_vlxgi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bk2vb"]
@@ -199,11 +199,10 @@ scale = Vector2(4, 4)
 [node name="Meter" type="Sprite2D" parent="Speed" unique_id=176932781]
 position = Vector2(-4.5, -128.5)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("19_vlxgi")
+texture = ExtResource("10_vlxgi")
 
 [node name="handle" type="Sprite2D" parent="Speed/Meter" unique_id=496741822]
-unique_name_in_owner = true
-position = Vector2(0, 37)
+position = Vector2(0, 39)
 scale = Vector2(0.9, 0.7)
 texture = ExtResource("11_aq4al")
 
