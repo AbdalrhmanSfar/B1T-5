@@ -31,6 +31,7 @@ unique_name_in_owner = true
 script = ExtResource("1_udhrh")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1330272532]
+unique_name_in_owner = true
 
 [node name="Logic Manager" type="Node" parent="." unique_id=568323203]
 unique_name_in_owner = true
@@ -58,6 +59,9 @@ shape = SubResource("RectangleShape2D_bk2vb")
 
 [node name="movingStreet" type="CanvasLayer" parent="." unique_id=578794239]
 layer = -1
+offset = Vector2(-430, 0)
+transform = Transform2D(1, 0, 0, 1, -430, 0)
+follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="movingStreet" unique_id=1677986327]
 anchors_preset = 8
@@ -65,9 +69,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -348.5
+offset_left = -960.0
 offset_top = -1953.0
-offset_right = 351.5
+offset_right = -260.0
 offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -79,9 +83,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -348.5
+offset_left = -960.0
 offset_top = -63.0
-offset_right = 351.5
+offset_right = -260.0
 offset_bottom = 1827.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -93,9 +97,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -348.5
+offset_left = -960.0
 offset_top = 1827.0
-offset_right = 351.5
+offset_right = -260.0
 offset_bottom = 3717.0
 grow_horizontal = 2
 grow_vertical = 2
