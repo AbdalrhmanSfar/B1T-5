@@ -32,7 +32,7 @@ var energy: int
 var timer = 0.0
 var alive = true
 var sceneID = 2
-var screenCenter = 0
+var screenCenter = 30
 var invincible = false
 
 @onready var gameOverMenu: CanvasLayer = $"../gameOverMenu"

@@ -23,7 +23,7 @@ func _ready() -> void:
 		queue.push_back(child)
 	for laneIndex in range(laneWarnings.size()):
 		#print("set "+str(laneIndex)+" to "+str(logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)))
-		laneWarnings[laneIndex].position.x = logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(laneIndex) + 0.5)
+		laneWarnings[laneIndex].position.x = logic.screenCenter + (-logic.lane_width) + logic.lane_width * (float(laneIndex) )
 		laneWarnings[laneIndex].visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

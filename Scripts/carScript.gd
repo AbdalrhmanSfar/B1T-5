@@ -57,7 +57,7 @@ func lane_center_x(lane_index: int) -> float:
 	if logic.sceneID == 1:
 		return (-logic.street_width * 0.5) + logic.lane_width * (float(lane_index) + 0.5) + 1497.0
 	else:
-		return logic.screenCenter + (-logic.street_width * 0.5) + logic.lane_width * (float(lane_index) + 0.5)
+		return logic.screenCenter + (-logic.lane_width) + logic.lane_width * (float(lane_index))
 
 func _move_to_lane_center(lane_index: int, dir: float) -> void:
 	is_switching = true
